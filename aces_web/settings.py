@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     # custom apps
 
     'accounts.apps.AccountsConfig',
+    'core.apps.CoreConfig',
 
     # django apps
     'django.contrib.admin',
