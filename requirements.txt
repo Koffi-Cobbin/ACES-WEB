@@ -1,0 +1,7 @@
+Django
+django-allauth
+django-crispy-forms
+django-debug-toolbar
+django-environ
+Pillow
+whitenoise
