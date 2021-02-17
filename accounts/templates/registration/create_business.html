@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %} Create a Business {% endblock %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 ">
+            <div class="white-bg p-4 pt-3 mb-5 mt-5 shadow">
+                <h3 class="text-center text-bolder">Upgrade Business</h3>
+                <small class="text-center"> fields marked (*) are mandatory </small>
+                <hr>
+                <form method="POST" class="override-fieldset with-dropdown-choices" data-choiceurl="{% url 'shop:load-categories-json' %}" data-driver="id_category_group" data-target="id_category" action="." enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% crispy form %}
+                    <p><input class="btn btn-dark btn-large" type="submit" value="Create"></p>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+
+{% include 'footer.html' %}
+{% endblock %}

@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+{% load thumbnail %}
+
+{% block content %}
+
+<div class="container-fluid ">
+    <div class="row">
+
+        <div class="col-12 mt-5">
+            {% if request.user.shop %}
+            <div class="container">
+
+                <div class="row text-center">
+
+                    <div class="col-12 py-2 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                        <div class="card h-100">
+                            <a href="{% url 'shop:manage_product' shop.slug %}">
+                                <div class="card-body text-left">
+                                    <h6 class="head-txt">Products in Shop</h6>
+                                    <p class="card-txt">
+                                        <i class="fas fa-shopping-cart"></i>{{ request.user.shop.products.count }} </p>
+                                    <hr class="mb-0 pt-0">
+                                    <div class="text-left font-large mb-0 pb-0 text-bold">Products Allowed ({% if request.user.shop.is_premium %}{{ configuration.premium_shop_product_limit }}{% else %}{{ configuration.normal_shop_product_limit }}{% endif %}) </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-12 py-2 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                        <div class="card card-bdy-storage  h-100">
+                            <a href="{% url 'shop:upgrade_account' %}">
+                                <div class="card-body text-left">
+                                    <h6 class="head-txt">Storage Space Used</h6>
+                                    <p class=" card-txt">
+                                        <i class="fas fa-upload"></i>
+                                        {{ request.user.shop.space_used|filesizeformat }}
+                                    </p>
+                                    <hr class="mb-0 pt-0">
+                                    <div class="text-left font-large mb-0 pb-0 text-bold">Space Allowed (
+                                        {% if request.user.shop.is_premium %}{{configuration.premium_shop_storage_space_limit_raw|filesizeformat }}
+                                        {% else %}{{ configuration.normal_shop_storage_space_limit_raw|filesizeformat }}
+                                        {% endif %})</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-12 py-2 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                        <div class="card card-bdy-follow  h-100">
+                            <a href="{% url 'shop:following' shop.slug shop.id %}">
+                                <div class="card-body text-left">
+                                    <h6 class="head-txt">Your Followers</h6>
+                                    <p class="card-txt ">
+                                        <i class="fas fa-users"></i> {{ request.user.shop.followers.count }}
+                                    </p>
+                                    <hr class="mb-0 pt-0">
+                                    <div class="text-left font-large mb-0 pb-0 text-bold">Shops You Follow
+                                        ({{ request.user.shops_followed.count }}) </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-12 py-2 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                        <div class="card h-100">
+                            <a href="{% url 'shop:requests' shop.id %}">
+                                <div class="card-body text-left">
+                                    <h6 class="head-txt">Requests for you</h6>
+                                    <p class=" card-txt">
+                                        <i class="fas fa-exchange-alt fa-lg mr-2"></i> {{ requests_for_me.count }}
+                                    </p>
+                                    <hr class="mb-0 pt-0">
+                                    <div class="text-left font-large mb-0 pb-0 text-bold">Requests Made
+                                        ({{ requests.count  }})
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-4 mb-4">
+                    <div class="col-md-6 col-lg-8 py-2 white-bg">
+                        <div id="container">
+                            <canvas id="line-chart" class="w-100"></canvas>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6 col-lg-4 white-bg p-4 ">
+                        <h5>Last profile views</h5>
+                        <hr>
+                        {% for user in request.user.shop.get_viewers %}
+                        <div class=" w-100 d-flex flex-row">
+                            <div class="h-100" style="min-width: 60px;">
+                                <picture>
+                                    <img loading="lazy" class="img-thumbnail rounded-circle" height="60px" width="60px"
+                                        src="{% if user.picture %}{{ user.picture|thumbnail_url:'avatar' }}{% endif %}">
+                                </picture>
+                            </div>
+                            <div class="card-body w-100 pl-1 py-1 pr-0 d-flex justify-content-between">
+                                <div class="text-wrap pr-1">
+                                    <p class="font-medium  color-primary f p-0 m-0">
+                                        {{ user.username|truncatechars:15 }}</p>
+                                    <p class="p-0 m-0 font-small">{{ user.phone_number }}</p>
+                                </div>
+                                <div class="m-0 p-0">
+                                    <a class="btn btn-sm p-1 m-0 bg-color-primary text-white mx-0"
+                                        href="{% url 'shop:chatroom' user.pk %}">Chat</a>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        {% empty %}
+                        <p class="text-danger">Sorry, there have not been any new views recorded</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+
+
+{% include "footer.html" %}
+{% endblock content %}

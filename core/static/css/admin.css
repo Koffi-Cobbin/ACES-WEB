@@ -1,0 +1,214 @@
+*{
+    scrollbar-width: thin !important;
+    scrollbar-color: #888 red !important;
+    scroll-behavior: smooth;
+    scroll-padding: 1px !important;
+}
+#header,
+caption {
+    background: rgb(255, 144, 53)!important;
+}
+
+.breadcrumbs {
+    background: rgb(175, 115, 66) !important;
+    margin-bottom: 5px !important;
+    
+}
+#nav-sidebar{
+    padding-top: 20px !important;
+}
+
+#changelist-filter h2,
+input[type="submit"],
+button[type="submit"] {
+    background: rgba(255, 144, 53) !important;
+    color: white !important;
+}
+
+#head {
+    color: white !important;
+}
+
+.custom-admin-notification * {
+    box-sizing: border-box;
+
+}
+
+
+.custom-admin-notification *::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+.custom-admin-notification *::-webkit-scrollbar-track {
+    background: #444;
+}
+
+.custom-admin-notification *::-webkit-scrollbar-thumb {
+    background-color: #999;
+    border-radius: 20px;
+}
+
+.custom-admin-notification.show {
+    display: flex;
+}
+
+.custom-admin-notification {
+    display: none;
+    box-sizing: border-box;
+    position: fixed;
+    padding: 0;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    flex-direction: column;
+    max-height: 70vh;
+    min-height: 50px;
+    z-index: 3;
+    background: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, .4);
+}
+
+.custom-admin-notification-header {
+    margin: 0;
+    background: rgb(255, 144, 53);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+}
+
+.custom-admin-notification-header h3 {
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-size: 1.2em;
+}
+
+.custom-admin-notification-header .close {
+    padding: 7px 10px;
+    background: red;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+    border: 1px solid rgba(172, 169, 169, .5);
+    cursor: pointer;
+}
+.custom-admin-notification-header .close:hover{
+    box-shadow: 0 0 7px rgba(0, 0, 0, .3);
+
+}
+
+.custom-admin-notification-content {
+    background: #444;
+    padding: 5px 3%;
+    height: 90%;
+    max-height: calc(100% - 60px);
+    overflow-y: auto;
+}
+
+.custom-admin-notification-item-image-right,
+.user-img {
+    height: 100%;
+    width: 20%;
+    min-width: 70px;
+    max-width: 100px;
+    max-height: 100px;
+
+}
+
+.user-img {
+    border-right: 1px solid #777;
+}
+
+.custom-admin-notification-item-image-right {
+    border-left: 1px solid #777;
+}
+
+.custom-admin-notification-item-image-right img,
+.user-img img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+}
+
+.custom-admin-notification-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    border: 1px solid #777;
+    margin: 7px 0 7px;
+}
+
+.custom-admin-notification-item-content {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.custom-admin-notification-item-title {
+    margin: 0;
+    padding: 0;
+    color: rgb(254, 172, 105);
+
+}
+
+.custom-admin-notification-item-info {
+    padding: 5px 10px;
+    width: 100%;
+}
+
+.custom-admin-notification-bottom {
+    width: 100%;
+    color: rgb(254, 172, 105);
+    text-align: center;
+    padding: 15px;
+    background-color: #444;
+}
+
+.custom-admin-notification-bottom-button {
+    background: rgb(254, 172, 105);
+    width: 100%;
+    padding: 10px;
+
+}
+
+.custom-notification-floating-button,
+.custom-notification-floating-button:hover,
+.custom-notification-floating-button:active {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    background:rgb(255, 144, 53);
+    box-shadow: 1px 2px 8px rgba(0, 0, 0, .4);
+}
+
+.custom-notification-floating-button:hover {
+    box-shadow: 2px 3px 12px rgba(0, 0, 0, .7);
+    background: rgb(254, 172, 105);
+}
+
+.notifications-counter.top {
+    display: none;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    padding: 1px 3px;
+    background: red;
+}
+.notifications-counter.top.show{
+    display: block;
+}

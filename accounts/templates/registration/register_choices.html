@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %} REGISTER {% endblock %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+
+    <div class="col-12 px-1">
+        <div class="container">
+
+
+            <div class="row  text-center d-flex align-items-center py-5 justify-content-center h-min-100vh">
+                <div class="col-12">
+                    <div class="row d-flex align-items-center justify-content-center">
+                        <div class="col-md-6 py-2">
+                            <a href="{% url 'accounts:register-personal' %}">
+                                <div class="card py-5 h-100 bg-primary">
+                                    <div class="container">
+                                        <p class="font-xxlarge  text-white">
+                                            Create a personal account
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-6 py-2">
+                            <a href="{% url 'accounts:register-business' %}">
+                                <div class="card py-5 h-100 bg-gradient-primary">
+                                    <div class="container">
+                                        <p class="font-xxlarge text-white">
+                                            Create a Business account
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

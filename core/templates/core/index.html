@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block banner %}
+<div class="jumbotron h-100 m-0 py-7 shadow-none" style="background: transparent;">
+
+    <div class="container text-white ">
+        <div class="row">
+            <div class=" col-md-6">
+                <p class="lead">Welcome to </p>
+                <h1 class="display-3 font-weight-bold">ACES, KNUST</h1>
+                <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, ut
+                    facilis tempora laboriosam fuga a dicta ratione doloribus.</p>
+            </div>
+            <div class="col-md-6 h-max-100">
+                <img class="img-secondary" src="{% static 'img/banner2.png' %}">
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock banner %}
+
+{% block content %}
+<div class="bg-light container-fluid pb-5">
+    <div class="d-flex flex-column align-items-center py-4">
+        <div class="div">
+            <h1 class="display-3 font-weight-bold m-0">About ACES</h1>
+            <p class="fancy-underline"></p>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center">
+        <p class="" style="max-width: 650px;">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut maiores tempore sed asperiores aperiam sit nemo ea non impedit repellat rem, aliquam error at eaque nam odit sapiente labore accusantium.
+        </p>
+    </div>
+</div>
+{% endblock content %}
