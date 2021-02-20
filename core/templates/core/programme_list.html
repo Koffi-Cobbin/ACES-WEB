@@ -1,0 +1,23 @@
+{% extends "_base.html" %}
+
+
+{% block title %}School Programmes{% endblock title %}
+{% block description %}List of some school programmes.{% endblock %}
+
+{% block content %}
+<div class="container py-5 mt-5">
+    <h1>Programmes</h1>
+    <hr>
+
+    <div class="row">
+        {% for programme in programmes %}
+        <div class="col-12 col-md-6 py-3">
+            <div class="bg-light p-5 py-4">
+                <a href="{{ programme.get_absolute_url }}"><h4>{{ programme.title }}</h4></a>
+                <span class="badge badge-primary">{{ programme.courses.count }}</span> courses available
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

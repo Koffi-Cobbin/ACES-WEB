@@ -1,0 +1,53 @@
+<div class="col-12 col-sm-6 col-md-4  py-3">
+    <div class=" bg-light ">
+        <div class="card-body">
+            <a href="#" class="course-panel-show-toggle" data-target="course-panel-{{ madarasah.id }}">
+
+                <h4>{{ madarasah.title }}</h4>
+            </a>
+            <div class="m-0">
+                <a href="{{ madarasah.category.get_absolute_url }}" class="m-0 badge badge-primary">
+                    {{madarasah.category}}</a>
+            </div>
+            <a href="#" class="course-panel-show-toggle" data-target="course-panel-{{ madarasah.id }}">
+
+                <div class="text-truncate">
+                    {{ madarasah.description }}
+                </div>
+            </a>
+        </div>
+        <div class="card-footer">
+            <div class="d-flex align-items-center justify-content-between">
+                <a href="{{ madarasah.file.url }}" class="m-0">Download</a>
+                <a href="{{ madarasah.file.url }}"><i class="fa fa-download"></i></a>
+            </div>
+        </div>
+
+    </div>
+    <!-- Book list section -->
+    <div class="subject-panel p-4 d-none position-fixed" id="course-panel-{{ madarasah.id }}"
+        style="top: 0; bottom: 0; left: 0; right: 0; height: 100vh; overflow: auto; width: 100%; z-index: 999999; background: white;">
+        <div class="d-flex justify-content-end">
+
+            <button class="close-toggle btn btn-md btn-danger" data-target="course-panel-{{ madarasah.id }}">&times;
+            </button>
+        </div>
+        <div class="subject-panel-content  container">
+
+            <h3 class="text-center py-4">{{ madarasah.title }}</h3>
+            <div class="bg-light p-5">
+                <p>{{ madarasah.description }}</p>
+            </div>
+
+            <div class="py-3 mt-2">
+                <div class="bg-light p-3">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <a href="{{ madarasah.file.url }}" class="m-0">Download</a>
+                        <a href="{{ madarasah.file.url }}"><i class="fa fa-download"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end book list section-->
+</div>

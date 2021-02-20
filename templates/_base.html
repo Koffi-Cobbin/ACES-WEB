@@ -34,13 +34,13 @@
         <header class="d-flex flex-column  {% block extra_header_class %}{% endblock %}">
             <div class="background-overlay">
                 <div class="row m-0 p-0 h-100">
-                    <div class="col-5 h-100">
+                    <div class="col-5 col-md-4 h-100">
                         <div class="circle"></div>
                         <div class="circle-2">
 
                         </div>
                     </div>
-                    <div class="col-7 h-100 pr-0">
+                    <div class="col-7 col-md-8 h-100 pr-0">
                         <div class="curved-left">
                         </div>
                     </div>
@@ -50,7 +50,7 @@
             {% block navbar %}
 
             <!-- Navbar begins -->
-            <nav class="navbar navbar-expand-lg navbar-dark shadow-none  ">
+            <nav class="navbar navbar-expand-lg navbar-dark shadow  ">
 
                 <a class="navbar-brand" href="#">
                     <div class="d-flex flex-column align-items-center justify-content-center text-wrap text-center"
@@ -65,29 +65,51 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-md-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{% url 'core:index' %}">Home <span
-                                    class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Articles</a>
-                        </li>
+                    <div class="container">
+                        <ul class="navbar-nav ml-md-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{% url 'core:index' %}">Home <span
+                                        class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'core:about' %}">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Articles</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'core:course-materials' %}">Course Materials</a>
+                            </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Disabled</a>
-                        </li>
-                    </ul>
+                            
+                            <li class="nav-item"><a class="nav-link" href="{% url 'core:project-list' %}">Projects</a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'core:event-list' %}">Event</a></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                    Pages
+                                </a>
+                                <ul class="dropdown-menu bg-main-color">
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'core:about' %}">About Us</a>
+                                    </li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'core:contact' %}">Contact</a>
+                                    </li>
+
+                                    <li class="nav-item"><a class="nav-link"
+                                            href="{% url 'core:scholarship-list' %}">Scholarships</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+
             </nav>
             <!-- Navbar ends -->
             {% endblock navbar %}
 
             {% block banner %}
-                 
+
             {% endblock banner %}
         </header>
 
@@ -127,6 +149,27 @@
 
 
     </div>
+
+    {% block footer %}
+    <footer class="bg-main-color text-white pt-5">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-4">
+                    <h3 class="text-light font-weight-boldder pb-3">Important Links.</h3>
+                    <ul class="list-unstyled">
+                        <li class="py-1"><a class="text-white font-small" href="{% url 'core:index' %}">Home</a></li>
+                        <li class="py-1">
+                            <a class="text-white font-small" href="{% url 'core:about' %}">About ACES</a>
+                        </li>
+                        <li class="py-1"><a class="text-white font-small"
+                                href="{% url 'core:course-materials' %}">Course Materials</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    {% endblock footer %}
 
     <script type="text/javascript" src="{% static 'js/all.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>

@@ -1,0 +1,26 @@
+<!-- Single Testimonials Area -->
+<div class="col-12 col-md-6 py-3">
+    <div class="shadow h-100">
+
+        <div class="d-flex flex-column wow fadeInUp" data-wow-delay="400ms">
+            <div class="testimonial-thum  p-0">
+                <a href="{{ event.get_absolute_url }}">
+
+                <img style="object-fit:cover; height: 400px; width:100%;" src="{{ event.picture.url }}" alt="">
+                </a>
+            </div>
+            <div class="testimonial-content  text-center p-3">
+                <a href="{{ event.get_absolute_url }}">
+                    <h3 class="text-uppercase  m-0" style="color: #666;">{{ event.name }}</h3>
+                </a>
+                <p class="m-0">
+                    {% if event.completed %}<span class="badge badge-warning">Completed</span>{% else %}<span
+                        class="badge badge-success">Upcomming</span>{% endif %}
+                </p>
+                <p clas="mb-0">{{ event.description | truncatechars:200}}</p>
+
+                <p class="text-warning"><span>{{ event.venue }},</span> {{ event.date }}</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+{% extends "_base.html" %}
+
+
+{% block title %}{{ executive.name }} ({{ executive.role }}) {% endblock title %}
+{% block description %}{{ executive.about | truncatewords:60 }}{% endblock %}
+
+{% block content %}
+<div class="container pt-5 mt-5">
+    <div class="row">
+        <div class="col-12">
+            <div class="section-heading mb-0 text-center mx-auto wow fadeInUp" data-wow-delay="300ms">
+                <span>{{ executive.executive_role }}</span>
+                <h3>{{ executive.name }}</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container pb-5">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{ executive.picture.url }}" alt="" class="img-reponsive img-thumbnail">
+        </div>
+        <div class="col-md-6">
+            <ul class="list-unstyled">
+                <li class="bg-light p-4 d-flex justify-content-between align-items-center">
+                    <span>From :</span> <span>{{ executive.date_started }}</span>
+                </li>
+                <li class="bg-light p-4 d-flex justify-content-between align-items-center border-top">
+                    <span>To :</span> 
+                    <span>{% if executive.is_active %}Date{% else %} {{ executive.date_ended }}  {% endif %}</span>
+                </li>
+            </ul>
+            <h4 class=" pt-5 p-3 border-bottom ">About {{ executive.name }}</h4>
+
+            <div class="p-4">
+
+                {{ executive.about}}
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="container pb-5 mt-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="section-heading border-bottom pb-4 mb-0 text-center mx-auto wow fadeInUp" style="margin-bottom: 15px !important"
+                data-wow-delay="300ms">
+                <span>About The Office of </span>
+                <h3>The {{ executive.executive_role }}</h3>
+            </div>
+        </div>
+        <div class="col-12 py-4">
+            {{ executive.executive_role.duty }}
+        </div>
+    </div>
+</div>
+{% endblock %}

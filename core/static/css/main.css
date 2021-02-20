@@ -1,72 +1,105 @@
-:root{
+:root {
     --main-color: #25155c;
     --second-color: #85227f;
     --main-accent-color: #fbb517;
     --main-accent-color-light: #ddb557;
+    --main-gradient: linear-gradient(137deg, var(--second-color), var(--main-color));
+    --second-gradient: linear-gradient(137deg, var(--main-color), var(--second-color));
 }
-body{
+
+body {
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
 }
-.h-min-100vh{
+@media only screen and (max-width: 768px){
+    body {
+        font-size: 15px;
+    }
+    .lead {
+        font-size: 18px;
+    }
+}
+.h-min-100vh {
     min-height: 100vh;
 }
-header{
+
+header {
     position: relative;
     height: auto;
-    overflow: hidden;
 }
-.h-max-100{
+
+.h-max-100 {
     max-height: 100%;
 }
-nav.navbar{
+
+nav.navbar {
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
-.background-overlay{
+
+.background-overlay {
     position: absolute;
     width: 100%;
     background: var(--main-color);
-    max-height: 100vh;
     height: 100%;
 }
-.background-overlay .circle{
+
+.background-overlay .circle {
     position: relative;
     border-radius: 50%;
     left: -150px;
-    top: -170px;
+    top: -180px;
     width: 300px;
-    height:300px;
+    height: 300px;
     background: linear-gradient(120deg, var(--main-color), var(--second-color))
 }
 
-.background-overlay .curved-left{
+.background-overlay .curved-left {
     clip-path: circle(80% at 80% 50%);
-    background: linear-gradient(137deg,var(--second-color), var(--main-color));
+    background: linear-gradient(137deg, var(--second-color), var(--main-color));
     width: 100%;
     height: 100%;
-    
-} 
- 
-.img-primary{
+}
+
+.img-primary {
     object-fit: cover;
     object-position: center;
     width: 100%;
     height: 100%;
-
 }
-.img-secondary{
+
+.img-secondary {
     object-fit: contain;
     object-position: center;
     width: 100%;
     height: 100%;
 }
 
+/* COLORS */
 
+.bg-main-color {
+    background-color: var(--main-color);
+}
+
+.bg-second-color {
+    background-color: var(--second-color);
+}
+
+.bg-main-gradient {
+    background: var(--main-gradient);
+}
+
+.bg-second-gradient {
+    background: var(--second-gradient);
+}
 
 /* TYPOGRAPHY */
-.fancy-underline{
+
+.fancy-underline {
     position: relative;
     padding: 10px;
 }
+
 .fancy-underline::before {
     content: '';
     position: absolute;
@@ -79,7 +112,8 @@ nav.navbar{
     background: var(--main-accent-color);
     clip-path: polygon(0 0 100% 80%);
 }
-.fancy-underline::after{
+
+.fancy-underline::after {
     content: '';
     width: 80%;
     position: absolute;
@@ -88,21 +122,99 @@ nav.navbar{
     max-width: 200px;
     min-width: 150px;
     background: var(--main-accent-color-light);
-    
-}
-.font-weight-bolder{
-    font-weight: 900;
-}
-.font-xlarge{
-    font-size:42px;
 }
 
-.font-large{
+.font-weight-bolder {
+    font-weight: 900;
+}
+.font-xxlarge {
+    font-size: 52px;
+}
+.font-xlarge {
+    font-size: 42px;
+}
+
+.font-large {
     font-size: 22px;
 }
-.font-medium{
+
+.font-medium {
     font-size: 18px;
 }
-.font-small{
+
+.font-small {
     font-size: 16px;
+}
+@media only screen and (max-width: 786px){
+    .font-xxlarge{
+        font-size: 42px;
+    }
+    .font-xlarge{
+        font-size: 24px;
+    }
+    .font-large {
+        font-size: 20px;
+    }
+    .font-medium {
+        font-size: 16px;
+    }
+    .font-small {
+        font-size: 14px;
+    }
+    .font-xsmall{
+        font-size: 12px;
+    }
+}
+/* Section Heading */
+
+.section-heading {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    margin-bottom: 80px !important;
+}
+
+.section-heading span {
+    color: #606060;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    display: block;
+    letter-spacing: 2px;
+}
+
+.section-heading h3 {
+    font-size: 34px;
+    margin-bottom: 0;
+    font-weight: 600;
+}
+
+@media only screen and (max-width: 767px) {
+    .section-heading h3 {
+        font-size: 24px;
+    }
+}
+
+.section-heading.text-left {
+    text-align: left !important;
+}
+
+.section-heading.white span, .section-heading.white h3 {
+    color: #ffffff;
+}
+
+a {
+    color: var(--main-accent-color);
+}
+
+a * {
+    color: #444;
+}
+a:hover {
+    text-decoration: none;
+    color: var(--main-accent-color);
+}
+a *:hover{
+    text-decoration: none;
+    color: var(--main-accent-color);
 }

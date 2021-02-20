@@ -1,0 +1,84 @@
+{% extends '_base.html' %}
+
+
+{% block title %}Social Media{% endblock title %}
+{% block description %}Our social media outlets, whatsapp, facebook, twitter, etc.{% endblock %}
+
+{% block content %}
+<div class="container py-5 mt-5">
+    <div class="row">
+        <div class="col-12">
+            <div class="section-heading text-center mx-auto wow fadeInUp" data-wow-delay="300ms">
+                <span>All</span>
+                <h3>Social Media Links</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row ">
+        {% if config.whatsapp_link %}
+
+        <div class="col-6 p-0">
+            <a href="{{ config.whatsapp_link }}">
+                <div class="d-flex  justify-content-center align-items-center bg-light p-5">
+                    <div class="" style="font-size: 40px;">
+                        <i class="fa fa-lg fa-whatsapp"></i>
+                    </div>
+                    <div class=" pl-3">Whatsapp</div>
+                </div>
+            </a>
+
+
+        </div>
+        {% endif %}
+        {% if config.facebook_link %}
+
+        <div class="col-6 p-0">
+            <a href="{{ config.facebook_link }}">
+                <div class="d-flex  justify-content-center align-items-center bg-primary p-5">
+                    <div class="" style="font-size: 40px;">
+                        <i class="fa fa-lg fa-facebook"></i>
+                    </div>
+                    <div class="pl-3">Facebook</div>
+                </div>
+            </a>
+
+
+        </div>
+        {% endif %}
+
+        {% if config.youtube_link %}
+
+        <div class="col-6 p-0">
+            <a href="{{ config.youtube_link }}">
+                <div class="d-flex bg-warning justify-content-center align-items-center p-5">
+                    <div class="" style="font-size: 40px;">
+                        <i class="fa fa-lg fa-youtube"></i>
+                    </div>
+                    <div class="pl-3">Youtube</div>
+                </div>
+            </a>
+
+
+        </div>
+        {% endif %}
+
+        {% if config.twitter_link %}
+
+        <div class="col-6 p-0">
+            <a href="{{ config.twitter_link }}">
+                <div class="d-flex shadow-sm justify-content-center align-items-center p-5">
+                    <div class="" style="font-size: 40px;">
+                        <i class="fa fa-lg fa-twitter"></i>
+                    </div>
+                    <div class="pl-3">Twitter</div>
+                </div>
+            </a>
+
+
+        </div>
+        {% endif %}
+
+        
+    </div>
+</div>
+{% endblock %}

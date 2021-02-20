@@ -1,0 +1,64 @@
+{% extends "_base.html" %}
+
+{% load crispy_forms_tags %}
+
+
+{% block title %}{{ project.title }}{% endblock title %}
+{% block description %}{{ project.description | truncatewords:60 }}{% endblock %}
+
+{% block content %}
+
+<div class="container pt-5 mt-5">
+    <div class="row">
+        <div class="col-12">
+            <div class="section-heading mb-0 text-center mx-auto wow fadeInUp" data-wow-delay="300ms">
+                <span>Development</span>
+                <h3>{{ project.title }}</h3>
+                
+            </div>
+        </div>
+        <div class="col-12">
+            <img src="{{ project.picture.url }}" alt="project-image" style="width: 100%; object-fit:cover; max-height: 80vh;">
+        </div>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="col-12 bg-light py-4">
+        {{ project.description }}
+    </div>
+</div>
+
+
+
+<div class="container py-5 mt-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="section-heading text-center mx-auto wow fadeInUp" style="margin-bottom: 10px !important;" data-wow-delay="300ms">
+                <span>project</span>
+                <h3>Gallery</h3>
+            </div>
+        </div>
+        {% for image in project.images.all %}
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class=" py-3">
+                <img src="{{ image.image.url }}" alt="" style="object-fit:cover; height: 200px; width: 100%">
+            </div>
+        </div>
+        {% endfor %}
+        {% if request.user.is_superuser %}
+        <div class="col-12 d-flex justify-content-center align-items-center ">
+            <form class="p-5 image-form-section bg-light" style="max-width: 500px;" method="POST" action="." enctype="multipart/form-data">
+                <h3>Add Images to upload</h3>
+                {% csrf_token %}
+                {% crispy image_form %}
+                <div class="col-12">
+                    <button type="submit" class="btn btn-lg btn-success">Submit</button>
+                </div>
+            </form>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock content %}

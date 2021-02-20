@@ -1,0 +1,42 @@
+{% extends "_base.html" %}
+
+
+{% block title %}Madarasah{% endblock title %}
+{% block description %}Find Islamic books and scripts.{% endblock %}
+
+{% block content %}
+
+<div class="container pt-5 mt-5">
+    <div class="row">
+        <div class="col-12">
+            <div class="section-heading mb-0 text-center mx-auto wow fadeInUp" data-wow-delay="300ms">
+                <!-- <span>Our</span> -->
+                <h3>Madarasah</h3>
+                <div class="d-flex flex-wrap align-items-center justify-content-center">
+                    {% for category_item in categories %}
+                    <a href="{{ category_item.get_absolute_url }}" class="{% if category_item == category %}bg-warning{% else %}bg-light{% endif %} p-3 m-2 my-1 rounded">{{ category_item }}</a>
+                    {% endfor %}
+                </div>
+                <div class="col-12">
+                    <form action="." method="GET">
+                        <input type="search" name="search" placeholder="search..." class="form-control" value="{{ search }}">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container pb-5">
+    <div class="row">
+        {% for madarasah in madarasah_set %}
+        {% include '_partials/_madarasah_card.html' %}
+        {% empty %}
+        <div class="col-12 p-3 text-center text-danger">
+            There are no uploaded Madarasahs
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}

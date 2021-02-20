@@ -1,0 +1,100 @@
+{% extends "_base.html" %}
+
+
+{% block title %}Course Materials{% endblock title %}
+{% block description %}Get course materials for all courses related to Computer Engineering.{% endblock %}
+
+{% block content %}
+<div class="container pt-5 mt-5">
+    <div class="row">
+        <div class="col-12">
+            <div class="section-heading mb-0 text-center mx-auto wow fadeInUp" data-wow-delay="300ms">
+                <span>Course</span>
+                <h3>Materials</h3>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+
+    <div class="row">
+        {% for level in levels %}
+        <div class="col-12 py-5 {% cycle 'bg-light' 'bg-white' %}">
+            <div class="container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="section-heading mb-0 text-center mx-auto wow fadeInUp" data-wow-delay="300ms">
+                                <span>Level</span>
+                                <h3>{{ level.level }}</h3>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    {% for subject in level.courses %}
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class=" shadow bg-white">
+                            <div class="card-body btn course-panel-show-toggle"
+                            data-target="course-panel-{{ subject.id }}">
+                                <h3>{{ subject.title }}</h3>
+                            </div>
+                        </div>
+                        <!-- Book list section -->
+                        <div class="subject-panel p-4 d-none position-fixed" id="course-panel-{{ subject.id }}"
+                            style="top: 0; bottom: 0; left: 0; right: 0; height: 100vh; overflow: auto; width: 100%; z-index: 999999; background: white;">
+                            <div class="d-flex justify-content-end">
+
+                                <button class="close-toggle btn btn-md btn-danger"
+                                    data-target="course-panel-{{ subject.id }}">&times;
+                                </button>
+                            </div>
+                            <div class="subject-panel-content container">
+                                <h3>{{ subject.title }}</h3>
+                                <hr>
+                                <ol pt-5>
+                                    {% for book in subject.books.all %}
+                                    <li class="d-flex justify-content-between p-4 {% cycle 'bg-light' 'bg-white' %}"><a
+                                            href="{{ book.book.url }}">{{ book.title }}</a> <a
+                                            class="btn btn-sm btn-success" href="{{ book.book.url }}">Download</a></li>
+
+                                    {% endfor %}
+                                    </ul>
+
+                            </div>
+                        </div>
+                        <!--end book list section-->
+                    </div>
+                    {% empty %}
+                    <div class="col-12 text-danger text-center">
+                        <p>Sorry there are no courses here</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+    let togglers = document.getElementsByClassName("course-panel-show-toggle");
+    for (toggler of togglers) {
+        console.log("registering");
+        toggler.addEventListener("click", function (e) {
+            console.log('clicked');
+            console.log(this.dataset);
+            document.getElementById(this.dataset.target)?.classList.remove("d-none");
+        });
+    }
+    let closes = document.getElementsByClassName("close-toggle");
+    for (close of closes) {
+        close.addEventListener("click", function (e) {
+            document.getElementById(this.dataset.target)?.classList.add("d-none");
+        });
+    }
+</script>
+{% endblock content %}

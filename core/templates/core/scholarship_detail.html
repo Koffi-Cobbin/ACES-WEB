@@ -1,0 +1,37 @@
+{% extends "_base.html" %}
+
+{% load crispy_forms_tags %}
+
+
+
+{% block title %}{{ scholarship.title }}{% endblock title %}
+{% block description %}{{ scholarship.description }}.{% endblock %}
+
+
+{% block content %}
+
+<div class="container pt-5 mt-5">
+    <div class="row">
+        <div class="col-12">
+            <div class="section-heading mb-0 text-center mx-auto wow fadeInUp" data-wow-delay="300ms">
+                <span>Scholarship</span>
+                <h3>{{ scholarship.title }}</h3>
+                
+            </div>
+        </div>
+       
+    </div>
+</div>
+
+<div class="container pb-5 d-flex flex-column justify-content-center align-items-center">
+    <div class="col-12 bg-light py-4" style="max-width: 600px;">
+        {{ scholarship.description }}
+        <p>Click <a class="font-weight-bold text-warning" href="{{ scholarship.application_link }}">Here</a> to apply.</p>
+        <p>This scholarship ends on {{ scholarship.end_date }}</p>
+
+    </div>
+    <a href="{{ scholarship.application_link }}" class="btn btn-warning mt-5 btn-lg">Apply here</a>
+</div>
+
+
+{% endblock content %}
