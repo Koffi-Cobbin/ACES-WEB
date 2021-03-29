@@ -211,3 +211,38 @@ class Scholarship(models.Model):
     
     def get_absolute_url(self):
         return reverse("core:scholarship-detail", kwargs={"pk": self.pk})
+class ArticleCategory(models.Model):
+    name = models.CharField(max_length=100)
+    
+    class Meta:
+        ordering = ("name",)
+
+    def __str__(self):
+        return self.name
+
+class Article(models.Model):
+    author = models.ForeignKey(User, related_name="articles", on_delete=models.CASCADE)
+    title = models.CharField(max_length=300)
+    content = models.TextField(help_text="This is a markdown enabled editor")
+    categories = models.ManyToManyField(ArticleCategory, related_name="articles", symmetrical=True)
+    is_draft = models.BooleanField(default=True)
+    date_created = models.DateTimeField(auto_now_add=True)
+    last_modified  = models.DateTimeField(auto_now=True)
+    class Meta:
+        ordering = ('-date_created', )
+        
+    def __str__(self):
+        return f'{self.title} by {self.author}'
+    
+    def get_absolute_url(self):
+        return reverse('core:article-detail', kwargs={'pk': self.pk})
+
+    
+class CodeTry(models.Model):
+    author = models.ForeignKey(User, related_name="posted_code_tries", blank=True, null=True, on_delete=models.SET_NULL)
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    date_created = models.DateTimeField(auto_now_add=True)
+    last_modified = models.DateTimeField(auto_now=True)
+    date_ended = models.DateTimeField()
+    is_draft = models.BooleanField(default=False)

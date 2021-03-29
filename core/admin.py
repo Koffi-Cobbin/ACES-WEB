@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import  ContactMessage, Event, Executive, ExecutiveRole, Configuration, Image, Course, Book, Project, Scholarship, Slider
+from .models import  Article, ArticleCategory, ContactMessage, Event, Executive, ExecutiveRole, Configuration, Image, Course, Book, Project, Scholarship, Slider
 
 admin.site.site_header = "ACES-KNUST"
 admin.site.index_title = "Welcome to ACES, KNUST Administration Panel"
@@ -22,3 +22,5 @@ admin.site.register(ContactMessage)
 admin.site.register(Slider)
 admin.site.register(Project)
 admin.site.register(Scholarship)
+admin.site.register(ArticleCategory)
+admin.site.register(Article)

@@ -1,0 +1,9 @@
+{% extends "_base.html" %}
+
+{% load unicorn %}
+{% block title %}Articles{% endblock title %}
+{% block description %}Best Read articles from us.{% endblock %}
+
+{% block content %}
+{% unicorn 'article-list' %}
+{% endblock content %}

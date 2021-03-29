@@ -5,6 +5,7 @@ from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.http.request import HttpRequest
 from django.contrib import messages
+from django.utils import timezone
 from . import forms
 from .import models
 # Create your views here.
@@ -171,3 +172,20 @@ class ScholarshipDetailView(DetailView):
         return models.Scholarship.objects.filter(end_date=None) | models.Scholarship.objects.filter(end_date__gte=timezone.now())
 
 
+class ArticleListView(ListView):
+    model = models.Article
+    context_object_name = "articles"
+    queryset = models.Article.objects.filter(is_draft=False)
+    paginate_by = 24
+    template_name = "core/article_list.html"
+
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        context['categories'] = models.ArticleCategory.objects.all()
+        return context
+
+class ArticleDetailView(DetailView):
+    model = models.Article
+    queryset = models.Article.objects.filter(is_draft=False)
+    context_object_name='article'
+    template_name = "core/article_detail.html"

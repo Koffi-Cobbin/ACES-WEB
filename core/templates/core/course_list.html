@@ -39,7 +39,7 @@
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class=" shadow bg-white">
                             <div class="card-body btn course-panel-show-toggle"
-                            data-target="course-panel-{{ subject.id }}">
+                                data-target="course-panel-{{ subject.id }}">
                                 <h3>{{ subject.title }}</h3>
                             </div>
                         </div>
@@ -55,14 +55,18 @@
                             <div class="subject-panel-content container">
                                 <h3>{{ subject.title }}</h3>
                                 <hr>
-                                <ol pt-5>
+                                <ol class="pt-5 px-0">
                                     {% for book in subject.books.all %}
-                                    <li class="d-flex justify-content-between p-4 {% cycle 'bg-light' 'bg-white' %}"><a
-                                            href="{{ book.book.url }}">{{ book.title }}</a> <a
-                                            class="btn btn-sm btn-success" href="{{ book.book.url }}">Download</a></li>
+                                    <li class="d-flex justify-content-between p-2 py-3 {% cycle 'bg-light' 'bg-white' %}">
+
+                                        <a href="{{ book.book.url }}">{{ book.title }}</a>
+                                        <a class="btn m-0 p-0" href="{{ book.book.url }}">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                    </li>
 
                                     {% endfor %}
-                                    </ul>
+                                </ol>
 
                             </div>
                         </div>

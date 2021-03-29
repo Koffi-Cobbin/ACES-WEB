@@ -1,0 +1,28 @@
+{% extends "_base.html" %}
+{% load markdown %}
+
+{% load unicorn %}
+{% block title %}{{ article.title }}{% endblock title %}
+{% block description %}{{ article.content }}{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center">
+
+<div class="container py-5" style="max-width: 768px;">
+    <div class="pb-5">
+        <h1 class="m-0 font-weight-bold">{{ article.title }}</h1>
+        <p class="m-0 p-0"> by <span class="text-primary font-weight-bold">{{ article.author.username }}</span></p>
+        <hr>
+        <div class="d-flex flex-row flex-wrap">
+            {% for category in article.categories.all %}
+            <a class="btn btn-warning m-2">{{ category.name }}</a>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="markdown">
+        {{ article.content | markdown }}
+    </div>
+</div>
+</div>
+
+{% endblock content %}

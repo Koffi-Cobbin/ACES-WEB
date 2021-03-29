@@ -67,6 +67,8 @@ INSTALLED_APPS = [
     # Third party
     'whitenoise.runserver_nostatic',
     'crispy_forms',
+    'django_unicorn',
+    'unicorn',
     'debug_toolbar',
 
 ]

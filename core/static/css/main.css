@@ -218,3 +218,18 @@ a *:hover{
     text-decoration: none;
     color: var(--main-accent-color);
 }
+.article-search-input {
+    border: none;
+    border-bottom: 2px  solid silver;
+    padding: 5px 5px;
+    transition: all 0.7s;
+    color: var(--main-color);
+
+}
+.article-search-input:focus{
+    outline: none;
+    border-bottom: 2px solid var(--main-accent-color);
+    padding: 7px 10px;
+    color: var(--main-color);
+    
+}

@@ -35,6 +35,7 @@ urlpatterns = [
         {"sitemaps": sitemaps},
         name="django.contrib.sitemaps.views.sitemap",
     ),
+    path('django-unicorn-routes/', include('django_unicorn.urls', namespace="django_unicorn")),
     path('', include('core.urls', namespace='core')),
 ]
 urlpatterns = urlpatterns + static(

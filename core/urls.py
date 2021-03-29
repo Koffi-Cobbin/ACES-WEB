@@ -21,4 +21,7 @@ urlpatterns = [
     path("projects/<slug:slug>/", views.ProjectDetailView.as_view(), name="project-detail"),
     path("scholarships/", views.ScholarshipListView.as_view(), name="scholarship-list"),
     path("scholarships/<int:pk>", views.ScholarshipDetailView.as_view(), name="scholarship-detail"),
+
+    path('articles/', views.ArticleListView.as_view(), name="article-list"),
+    path('articles/<int:pk>/', views.ArticleDetailView.as_view(), name="article-detail"),
 ]

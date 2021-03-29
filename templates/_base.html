@@ -26,9 +26,14 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'assets/owl.carousel.min.css' %}">
     <link rel="stylesheet" href="{% static 'assets/owl.theme.default.min.css' %}">
+
+    {% load unicorn %}
+
+    {% unicorn_scripts %}
 </head>
 
 <body>
+    {% csrf_token %}
 
     <div class="main">
         <header class="d-flex flex-column  {% block extra_header_class %}{% endblock %}">
@@ -66,7 +71,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <div class="container">
-                        <ul class="navbar-nav ml-md-auto">
+                        <ul class="navbar-nav ml-lg-auto">
                             <li class="nav-item active">
                                 <a class="nav-link" href="{% url 'core:index' %}">Home <span
                                         class="sr-only">(current)</span></a>
@@ -75,7 +80,7 @@
                                 <a class="nav-link" href="{% url 'core:about' %}">About Us</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Articles</a>
+                                <a class="nav-link" href="{% url 'core:article-list' %}">Articles</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'core:course-materials' %}">Course Materials</a>
