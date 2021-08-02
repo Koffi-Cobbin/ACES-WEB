@@ -1,5 +1,6 @@
 {% extends '_base.html' %}
 
+{% load crispy_forms_tags %}
 
 {% block title %}Contact Us{% endblock title %}
 {% block description %}{{ config.location }}. Phone: {{ config.main_phone_number }}. 
@@ -7,17 +8,8 @@
 
 
 {% block content %}
-    <!-- ##### Breadcumb Area Start ##### -->
-    <div class="breadcumb-area bg-img mb-5 pb-5" style="background-image: url(img/bg-img/breadcumb.jpg);">
-        <div class="bradcumbContent">
-            <h2>Contact</h2>
-        </div>
-    </div>
-    <!-- ##### Breadcumb Area End ##### -->
-
+  
     
-<div class="my-5 py-5"></div>
-<div class="my-5 py-5"></div>
     <!-- ##### Contact Area Start ##### -->
     <section class="contact-area mt-5 pt-5">
         <div class="container">
@@ -29,18 +21,18 @@
                             <div class="col-12 col-lg-5">
                                 <div class="contact-information wow fadeInUp" data-wow-delay="400ms">
                                     <div class="section-heading text-left">
-                                        <span>The Best</span>
+                                        <span>Reach Out.</span>
                                         <h3>Contact Us</h3>
-                                        <p class="mt-30">{{ config.about|truncatewords:60 }}</p>
-                                        <a href="{% url 'about' %}" class="btn btn-primary">Read More</a>
+                                        <p class="mt-5">{{ config.get_about_text|safe |truncatewords:60 }}</p>
+                                        <a href="{% url 'core:about' %}" class="btn btn-primary">Read More</a>
                                     </div>
 
                                     <!-- Contact Social Info -->
                                     <div class="contact-social-info d-flex mb-30">
-                                        <a href="{{ config.whatsapp_link }}"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
-                                        <a href="{{ config.facebook_link }}"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                        <a href="{{ config.twitter_link }}"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                        <a href="{{ config.youtube_link }}"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+                                        <a class="p-2" style="font-size: 32px;" href="{{ config.whatsapp_link }}"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                                        <a class="p-2" style="font-size: 32px;" href="{{ config.facebook_link }}"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                                        <a class="p-2" style="font-size: 32px;" href="{{ config.twitter_link }}"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                                        <a class="p-2" style="font-size: 32px;" href="{{ config.youtube_link }}"><i class="fab fa-youtube" aria-hidden="true"></i></a>
                                     </div>
 
                                     <!-- Single Contact Info -->
@@ -71,12 +63,11 @@
                             <!-- Contact Form Area -->
                             <div class="col-12 col-lg-7">
                                 <div class="contact-form-area wow fadeInUp" data-wow-delay="500ms">
+                                    <h3>Leave a message</h3>
                                     <form action="." method="post">
                                         {% csrf_token %}
-                                        <input type="text" name="name" class="form-control" id="name" placeholder="Name">
-                                        <input type="email" name="email" class="form-control" id="email" placeholder="E-mail">
-                                        <textarea name="message" name="message" class="form-control" id="message" cols="30" rows="10" placeholder="Message"></textarea>
-                                        <button class="btn academy-btn mt-30" type="submit">Contact Us</button>
+                                        {{ contact_form | crispy }}
+                                        <button class="btn btn-lg btn-primary mt-30" type="submit">Send</button>
                                     </form>
                                 </div>
                             </div>

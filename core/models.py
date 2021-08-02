@@ -1,9 +1,12 @@
+
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.urls import reverse
 from django.contrib.contenttypes.fields  import GenericForeignKey, GenericRelation
 from django.contrib.contenttypes.models import ContentType
 from django.utils.text import slugify
+import bs4
+from ckeditor.fields import RichTextField
 from django.utils import timezone
 
 User = get_user_model()
@@ -14,8 +17,8 @@ class Configuration(models.Model):
     main_phone_number = models.CharField(max_length=13)
     office_phone_number = models.CharField(max_length=13)
     email_address = models.EmailField()
-    about = models.TextField()
-    history = models.TextField()
+    about = RichTextField()
+    history = RichTextField()
 
     # social links
     whatsapp_link = models.URLField(blank=True)
@@ -25,7 +28,8 @@ class Configuration(models.Model):
     
     def __str__(self):
         return "Site Configuration"
-
+    def get_about_text(self):
+        return bs4.BeautifulSoup(self.about).get_text()
     @classmethod
     def object(cls):
         return cls.objects.first()
@@ -84,7 +88,7 @@ class Executive(models.Model):
     executive_role = models.ForeignKey(ExecutiveRole, related_name="executives", on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     name = models.CharField(max_length=150)
-    about = models.TextField()
+    about = RichTextField()
     picture = models.ImageField(upload_to='executives/images/%Y/')
     is_active = models.BooleanField(default=True)
     date_started = models.DateField()
@@ -95,6 +99,9 @@ class Executive(models.Model):
     
     def __str__(self) -> str:
         return self.name
+    
+    def get_about_text(self):
+        return bs4.BeautifulSoup(self.about).get_text()
 
     def get_absolute_url(self) -> str:
         return reverse('core:executive-detail', kwargs={'pk': self.pk})
@@ -103,7 +110,7 @@ class Executive(models.Model):
 class Event(models.Model):
     name = models.CharField(max_length=250)
     picture = models.ImageField(upload_to="events/%Y/%m/")
-    description = models.TextField()
+    description = RichTextField()
     date = models.DateTimeField()
     venue = models.CharField(max_length=500)
     images = GenericRelation(Image, related_query_name="event")
@@ -115,7 +122,10 @@ class Event(models.Model):
     
     def __str__(self) -> str:
         return self.name
-    
+        
+    def get_description_text(self):
+        return bs4.BeautifulSoup(self.description).get_text()
+
     def get_absolute_url(self) -> str:
         return reverse("core:event-detail",kwargs={"pk": self.pk} )
 
@@ -140,7 +150,7 @@ class Course(models.Model):
 class Book(models.Model):
     course = models.ForeignKey(Course, related_name="books", on_delete=models.CASCADE)
     title = models.CharField(max_length=300)
-    description = models.TextField(blank=True)
+    description = RichTextField(blank=True)
     book = models.FileField(upload_to="books/%Y/")
 
     class Meta:
@@ -222,8 +232,11 @@ class ArticleCategory(models.Model):
 
 class Article(models.Model):
     author = models.ForeignKey(User, related_name="articles", on_delete=models.CASCADE)
+    
     title = models.CharField(max_length=300)
-    content = models.TextField(help_text="This is a markdown enabled editor")
+    sub_title = models.CharField(max_length=300)
+    image = models.ImageField(upload_to='article-images/')
+    content = RichTextField()
     categories = models.ManyToManyField(ArticleCategory, related_name="articles", symmetrical=True)
     is_draft = models.BooleanField(default=True)
     date_created = models.DateTimeField(auto_now_add=True)
@@ -236,8 +249,40 @@ class Article(models.Model):
     
     def get_absolute_url(self):
         return reverse('core:article-detail', kwargs={'pk': self.pk})
-
     
+    def get_comment_url(self):
+        return reverse('core:article-comment', kwargs={'pk': self.pk})
+    
+    def get_vote_url(self):
+        return reverse('core:article-vote', kwargs={'pk': self.pk})
+    def evaluate_votes(self):
+        return sum([vote.vote for vote in self.votes.all() ])
+
+class ArticleComment(models.Model):
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="article_comments")
+    article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name="comments")
+    content = models.TextField()
+    date_created = models.DateTimeField(auto_now_add=True)
+    last_modified = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ('-date_created',)
+
+    def __str__(self):
+        return self.content
+
+class ArticleVote(models.Model):
+    VOTE_CHOICES = (
+        (1,1),
+        (-1,-1)
+    )
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="article_votes")
+    article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name="votes")
+    vote = models.IntegerField(choices=VOTE_CHOICES)
+
+    class Meta:
+        unique_together = ('author', 'article')
+
 class CodeTry(models.Model):
     author = models.ForeignKey(User, related_name="posted_code_tries", blank=True, null=True, on_delete=models.SET_NULL)
     title = models.CharField(max_length=200)

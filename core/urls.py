@@ -24,4 +24,6 @@ urlpatterns = [
 
     path('articles/', views.ArticleListView.as_view(), name="article-list"),
     path('articles/<int:pk>/', views.ArticleDetailView.as_view(), name="article-detail"),
+    path('articles/<int:pk>/vote/', views.article_vote, name="article-vote"),
+    path('articles/<int:pk>/comment/', views.comment, name="article-comment"),
 ]

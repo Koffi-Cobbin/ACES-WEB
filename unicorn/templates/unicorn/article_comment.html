@@ -1,0 +1,32 @@
+<div>
+    <div>
+        <!-- put component code here -->
+        <div class=" my-3 mt-5">
+            <div class="p-3 font-weight-bold">
+                <h2>Comments</h2>
+            </div>
+            <div class="container py-3">
+
+                <textarea type="text"  placeholder="Type comment here..."
+                    unicorn:model.defer="comment" class="form-control mb-4"></textarea>
+                <button class="btn btn-primary" unicorn:click="save">Comment</button>
+            </div>
+        </div>
+
+        <div class="shado">
+            {% for comment in comments %}
+            <div class="d-flex flex-row flex-wrap align-items-left py-3 px-3">
+                <div style="width: 80px; height: 80px;">
+                    <img src="{% if comment.author.picture %}{{ comment.author.picture.url }}{% else %}#{% endif %}"
+                        alt="" class="img-thumbnail img-fluid rounded-circle bg-light"
+                        style="height: 100%; width: 100%; object-fit: cover;">
+                </div>
+                <div class="pl-3">
+                    <h5 class="m-0 font-weight-bold text-dark">{{ comment.author.username }} </h5>
+                    <p class="font-small text-light-1 ">{{ comment.content }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

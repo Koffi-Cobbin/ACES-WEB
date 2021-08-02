@@ -1,0 +1,104 @@
+{% load markdown %}
+{% load humanize %}
+<div class="d-flex justify-content-center">
+
+    <div class="container container-custom-xl pt-5 pb-lg-5 pb-0" >
+        <div class="row">
+            <div class="col-12 col-lg-2 col-xl-2">
+
+            </div>
+            <div class="col-12 col-lg-8 col-xl-8">
+
+                <div class="">
+                    <h1 class="m-0 font-weight-bold ">{{ article.title }}</h1>
+                    <h5 class="m-0 pl-2 text-italic  text-light-1">{{ article.sub_title }}</h5>
+                    <div class="d-flex flex-row align-items-left py-3">
+                        <div style="width: 60px; height: 60px;">
+                            <img width="60px" height="60px"
+                                src="{% if article.author.picture %}{{ article.author.picture.url }}{% else %}#{% endif %}" alt=""
+                                class="img-thumbnail img-fluid rounded-circle bg-light">
+                        </div>
+                        <div class="pl-3">
+                            <h5 class="m-0 font-weight-bold  text-light-1">{{ article.author.username }} </h5>
+                            <p class="m-0 font-small">{{ article.date_created | naturalday }}</p>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <img class="img-responsive img-fluid" style="max-height: 50vh; width: 100%; object-fit: cover;" src="{{ article.image.url }}">
+                    </div>
+
+                    
+                </div>
+            </div>
+            <div class="col-12 col-lg-2 col-xl-2">
+
+            </div>
+        </div>
+        <div class="row py-3" >
+            <div class="col-12 col-lg-2  col-xl-2 p-lg-0 d-flex flex-lg-column justify-content-centr align-items-center justify-content-lg-unset align-items-lg-unset"
+             >
+                <div class="d-flex justify-content-left align-items-center">
+
+                    <div class="d-flex font-weight-bold flex-column justify-content-center  align-items-center" style="font-size: 24px;">
+                        <button class="btn {% if vote.vote == 1 %}btn-warning{% else %}btn-light{% endif %} glow" unicorn:click="cast_vote(1)"><i class="fas fa-angle-up"></i></button>
+                        <span>{{ article.evaluate_votes }}</span>
+                        <button class="btn {% if vote.vote == -1 %}btn-dark{% else %}bg-light glow{% endif %}" unicorn:click="cast_vote(-1)"><i class="fas fa-angle-down"></i></button>
+                    </div>
+                    
+                    <div>
+                        Votes
+                    </div>
+                </div>
+                <div class="py-lg-3 px-4 px-lg-0">
+                    <span class="btn btn-light font-weight-bold badge-lg glow">{{ article.comments.count }}</span> Comments
+                </div>
+                <div class="d-flex flex-row flex-wrap">
+                    {% for category in article.categories.all %}
+                    <a class="btn btn-warning m-2" id="category-{{ category.pk }}">{{ category.name }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-12 col-lg-8 col-xl-8 markdown pt-5 pt-lg-0">
+                <div class="markdown">
+                    {{ article.content | markdown }}
+                </div>
+                <div>
+                    <div>
+                        <!-- put component code here -->
+                        <div class=" my-3 mt-5">
+                            <div class=" p-3 font-weight-bold">
+                                <h2>Add a comment</h2>
+                                <hr>
+                            </div>
+                            <div class="container py-3">
+                    
+                                <textarea type="text" placeholder="Type comment here..." unicorn:model.defer="comment.content" class="form-control mb-4"></textarea>
+                                <button class="btn btn-primary" unicorn:click="save">Create Comment</button>
+                            </div>
+                        </div>
+                    
+                        <div class="shado">
+                            {% for comment in article.comments.all|slice:2 %}
+                            <div class="d-flex flex-row flex-wrap align-items-left py-3 px-3">
+                                <div style="width: 80px; height: 80px;">
+                                    <img 
+                                        src="{% if comment.author.picture %}{{ comment.author.picture.url }}{% else %}#{% endif %}" alt=""
+                                        class="img-thumbnail img-fluid rounded-circle bg-light" style="height: 100%; width: 100%; object-fit: cover;">
+                                </div>
+                                <div class="pl-3">
+                                    <h5 class="m-0 font-weight-bold text-dark">{{ comment.author.username }} </h5>
+                                    <p class="font-small text-light-1 ">{{ comment.content }}</p>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-2 col-xl-2">
+
+            </div>
+        </div>
+    </div>
+</div>

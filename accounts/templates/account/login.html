@@ -8,11 +8,9 @@
 {% block content %}
 <div class="col">
 
-  <div class="container shadow bg-form my-2 my-md-5 p-0">
-    <div class="row no-gutters relative ">
-      <div class=" col-md-4 col-lg-6 img-section">
-        <img src="{% static 'img/illustration/form-img-2.jpg' %}" class="h-full">
-      </div>
+  <div class="container  bg-form my-2 my-md-5 p-0">
+    <div class="row no-gutters justify-content-center relative ">
+      
       <div class="col-11 col-md-8 col-lg-6 offset-1 offset-md-0 bg-gray px-4 py-4 p-md-5 content my-form">
         <h1>{% trans "Sign In" %}</h1>
 
@@ -20,12 +18,11 @@
 
 
         <p>If you have not created an account yet, then please
-          <a href="{% url 'accounts:register' %}">sign up</a> first.</p>
 
 
         <form class="login" method="POST" action="{% url 'account_login' %}">
           {% csrf_token %}
-          {{ form.as_p }}
+          {{ form | crispy }}
           {% if redirect_field_value %}
           <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
           {% endif %}

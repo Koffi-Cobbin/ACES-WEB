@@ -1,19 +1,16 @@
 <!-- Single Executive card -->
-<div class="col-12 col-lg-6">
-    <div class="single-top-popular-course d-flex align-items-center flex-wrap mb-30 wow fadeInUp" data-wow-delay="400ms">
-        <div class="popular-course-content">
-            <h5>{{ executive.name}}</h5>
-            <span>Started :  {{ executive.date_started }}</span>
-            <div class="course-ratings">
-                {% if executive.is_active %}
-                <span class="badge badge-md badge-warning py-3">Active</span>
-                {% else %}
-                <span class="badge badge-md badge-info py-3">Former</span>
-                {% endif %}
+<div class="col-sm-6 col-md-4 col-lg-3">
+    <a href="{{ executive.get_absolute_url }}">
+        <div class=" text-center  shadow rounded-5 p-2">
+            <img class="img-thumbnail rounded-circle" style="width: 150px; height: 150px;"
+                src="{{ executive.picture.url }}">
+            <div class="pt-2">
+
+                <h5 class="m-0">{{ executive.name }}</h5>
+                <p class="font-medium">{{ executive.executive_role }}</p>
             </div>
-            <p>{{ executive.about | truncatechars:150 }}</p>
-            <a href="{{ executive.get_absolute_url }}" class="btn academy-btn btn-sm">See More</a>
+
         </div>
-        <div class="popular-course-thumb bg-img" style="background-image: url({{ executive.picture.url }});"></div>
-    </div>
+    </a>
 </div>
+<!-- End Executive Card -->

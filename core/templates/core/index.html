@@ -5,11 +5,11 @@
 {% block extra_header_class %}h-min-100vh{% endblock %}
 
 {% block banner %}
-<div class="jumbotron h-100 m-0 py-7 shadow-none" style="background: transparent;">
+<div class="jumbotron h-100 m-0 py-7 bg-dark shadow-none" style="background: transparent;">
 
-    <div class="container text-white ">
-        <div class="row">
-            <div class=" col-md-6">
+    <div class="container text-white pt-5 h-100">
+        <div class="row h-100">
+            <div class=" col-md-6 h-100 d-flex flex-column justify-content-center">
                 <p class="lead">Welcome to </p>
                 <h1 class="font-xxlarge font-weight-bold">ACES, KNUST</h1>
                 <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, ut
@@ -25,17 +25,71 @@
 {% endblock banner %}
 
 {% block content %}
-<div class="bg-light container-fluid pb-5">
-    <div class="d-flex flex-column align-items-center py-4">
+<div class="bg-light container-fluid py-5">
+    <div class="d-flex flex-column align-items-center mt-4 py-4">
         <div class="div">
             <h1 class="display-3 font-weight-bold m-0">About ACES</h1>
             <p class="fancy-underline"></p>
         </div>
     </div>
+    <div class="d-flex justify-content-center mb-4 ">
+        <div class="" style="max-width: 650px;">
+            {{ config.get_about_text | truncatewords:50 }}
+        </div>
+    </div>
+</div>
+
+
+<div class="bg-white container-fluid py-5">
+    <div class="d-flex flex-column align-items-center py-4">
+        <div class="div">
+            <h1 class="display-3 font-weight-bold m-0">Our Mission</h1>
+            <p class="fancy-underline"></p>
+        </div>
+    </div>
     <div class="d-flex justify-content-center">
         <p class="" style="max-width: 650px;">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut maiores tempore sed asperiores aperiam sit nemo ea non impedit repellat rem, aliquam error at eaque nam odit sapiente labore accusantium.
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut maiores tempore sed asperiores aperiam sit
+            nemo ea non impedit repellat rem, aliquam error at eaque nam odit sapiente labore accusantium.
         </p>
     </div>
 </div>
+
+
+
+<div class="container-fluid py-5">
+    <div class="d-flex flex-column align-items-center py-4 mt-4">
+        <div class="div">
+            <h1 class="display-3 font-weight-bold m-0">Our Executives</h1>
+            <p class="fancy-underline"></p>
+        </div>
+    </div>
+    <div class="container py-5" >
+
+        <div class="row ">
+            {% for executive in executives %}
+            {% include '_partials/_executive_card.html' %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% if upcoming_events %}
+<div class="container-fluid py-5">
+    <div class="d-flex flex-column align-items-center py-4 mt-4">
+        <div class="div">
+            <h1 class="display-3 font-weight-bold m-0">Upcoming events</h1>
+            <p class="fancy-underline"></p>
+        </div>
+    </div>
+    <div class="container py-5" >
+
+        <div class="row ">
+            {% for event in upcoming_events %}
+            {% include '_partials/_event_list_card.html' %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}
 {% endblock content %}

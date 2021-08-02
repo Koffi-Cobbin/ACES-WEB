@@ -47,16 +47,18 @@ function readMultipleURL(input, destination) {
 
 
 $(document).ready(function () {
-    document.getElementsByClassName("image-form-section").forEach(item => {
+    let items = document.getElementsByClassName("image-form-section")
+    for(item of items){
         item.querySelector("input").addEventListener("change", (e) => {
             readURL(e.target, item.querySelector(".img-display"))
         });
-    });
-    document.getElementsByClassName("form-extra-images").forEach(item => {
+    }
+    items = document.getElementsByClassName("form-extra-images")
+    for(item of items){
         item.querySelector("input").addEventListener("change", (e) => {
             readMultipleURL(e.target, item.querySelector(".form-extra-images-container"))
         });
-    });
+    }
 
 });
 
@@ -80,44 +82,4 @@ $(document).ready(function () {
         window.location.replace(url);
         return False;
     }
-
-    document.getElementsByClassName("filter-city-item").forEach(item => {
-        item.addEventListener("click", function (e) {
-            construct_url("city", this.dataset["id"], "region")
-        });
-    });
-    document.getElementsByClassName("filter-region-item").forEach(item => {
-        item.addEventListener("click", function (e) {
-            construct_url("region", this.dataset["id"], "city")
-        });
-    });
-    document.getElementsByClassName("filter-category-item").forEach(item => {
-        item.addEventListener("click", function (e) {
-            construct_url("category", this.dataset["id"], "category_group")
-        });
-    });
-    document.getElementsByClassName("filter-category-group-item").forEach(item => {
-        item.addEventListener("click", function (e) {
-            construct_url("category_group", this.dataset["id"], "category")
-        });
-    });
-    document.getElementsByClassName("filter-search-form").forEach(item => {
-        item.addEventListener("submit", function (e) {
-            e.preventDefault()
-            construct_url("search", this.querySelector(".filter-search-input").value)
-        });
-    });
-    document.getElementsByClassName("grid-list").forEach(item => {
-        item.addEventListener("click", function (e){
-            e.preventDefault()
-            construct_url("list", this.dataset['value'], "grid")
-        });
-    });
-    document.getElementsByClassName("want-toggle").forEach(item => {
-        item.addEventListener("click", function(e){
-            e.preventDefault()
-            construct_url("want", this.dataset["value"])
-        });
-    });
-
 })();

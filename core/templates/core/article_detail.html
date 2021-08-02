@@ -2,27 +2,195 @@
 {% load markdown %}
 
 {% load unicorn %}
+{% load crispy_forms_tags %}
+
+{% load humanize %}
 {% block title %}{{ article.title }}{% endblock title %}
 {% block description %}{{ article.content }}{% endblock %}
 
 {% block content %}
-<div class="d-flex justify-content-center">
 
-<div class="container py-5" style="max-width: 768px;">
-    <div class="pb-5">
-        <h1 class="m-0 font-weight-bold">{{ article.title }}</h1>
-        <p class="m-0 p-0"> by <span class="text-primary font-weight-bold">{{ article.author.username }}</span></p>
-        <hr>
-        <div class="d-flex flex-row flex-wrap">
-            {% for category in article.categories.all %}
-            <a class="btn btn-warning m-2">{{ category.name }}</a>
-            {% endfor %}
+
+
+<div class="d-flex justify-content-center pt-4 pt-lg-0">
+
+    <div class="container container-custom-xl pt-5 pb-lg-5 pb-0">
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-12 col-lg-8 col-xl-8">
+
+                <div class="">
+                    <h1 class="m-0 font-weight-bold ">{{ article.title }}</h1>
+                    <h5 class="m-0 pl-2 text-italic  text-light-1">{{ article.sub_title }}</h5>
+                    <div>
+                        <div class="d-flex flex-row align-items-left py-3">
+                            <div style="width: 60px; height: 60px;">
+                                <img width="60px" height="60px"
+                                    src="{% if article.author.picture %}{{ article.author.picture.url }}{% else %}#{% endif %}"
+                                    alt="" class="img-thumbnail img-fluid rounded-circle bg-light">
+                            </div>
+
+                            <div class="pl-3">
+                                <h5 class="m-0 font-weight-bold  text-light-1">{{ article.author.username }} </h5>
+                                <p class="m-0 font-small">{{ article.date_created | naturalday }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2"></div>
+
+            <div
+                class="col-12 col-lg-2  col-xl-2 p-lg-0 d-flex flex-wrap flex-lg-column justify-content-between justify-content-lg-center align-items-center  align-items-lg-unset">
+
+                <div>
+                    <h5 class="mb-0">Categories</h5>
+                    <hr>
+                    <div class=" d-flex flex-row flex-wrap justify-contet-center">
+                        {% for category in article.categories.all %}
+                        <a class="btn btn-warning m-1" id="category-{{ category.pk }}">{{ category.name }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div>
+
+                    <h5 class="mb-0 mt-lg-4">Votes</h5>
+                    <hr>
+                    <div class="d-flex flex-row flex-lg-coumn justify-content-left align-items-center" id="vote-app">
+                        <button v-if="current_user_vote==1" v-on:click="vote_zero" class="btn btn-warning glow"><i
+                                class="fas fa-angle-up"></i></button>
+                        <button v-else class="btn btn-light glow" v-on:click="vote_up"><i
+                                class="fas fa-angle-up"></i></button>
+                        <span class="pl-2">[[ votes ]]</span>
+                        <button v-if="current_user_vote==-1" v-on:click="vote_zero" class="btn btn-dark"><i
+                                class="fas fa-angle-down"></i></button>
+                        <button v-else v-on:click="vote_down" class="btn btn-light glow"><i
+                                class="fas fa-angle-down"></i></button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-12 col-lg-8 col-xl-8">
+                <div>
+                    <img class="img-responsive img-fluid" style="max-height: 50vh; width: 100%; object-fit: cover;"
+                        src="{{ article.image.url }}">
+                </div>
+            </div>
+            <div
+                class="col-12 col-lg-2  col-xl-2 p-lg-0 d-flex flex-lg-column justify-content-center align-items-center justify-content-lg-unset align-items-lg-unset">
+
+            </div>
+
+            <div class="col-12 col-lg-2 col-xl-2">
+
+            </div>
         </div>
-    </div>
-    <div class="markdown">
-        {{ article.content | markdown }}
-    </div>
-</div>
-</div>
 
-{% endblock content %}
+
+
+        <div class="row">
+            <div
+                class="col-12 col-lg-2  col-xl-2 p-lg-0 d-flex flex-lg-column justify-content-center align-items-center justify-content-lg-unset align-items-lg-unset">
+
+            </div>
+            <div class="col-12 col-lg-8 col-xl-8 markdown pt-5 pt-lg-3">
+                <div class="markdown">
+                    {{ article.content | safe }}
+                </div>
+
+                <div>
+                    <div>
+                        <!-- put component code here -->
+                        <div class=" my-3 mt-5">
+                            <div class="p-3 font-weight-bold">
+                                <h2>Comments</h2>
+                            </div>
+                            <div class="container py-3">
+
+                                <form action="{{ article.get_comment_url }}" method="POST">
+                                   {% csrf_token %}
+                                    {{ comment_form | crispy }}
+                                    <button class="btn btn-primary" type="submit">Comment</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="shado">
+                            {% for comment in article.comments.all|slice:10 %}
+                            <div class="d-flex flex-row  align-items-left py-3 px-3">
+                                <div>
+                                <div style="width: 80px; height: 80px;">
+
+                                        <img src="{% if comment.author.picture %}{{ comment.author.picture.url }}{% else %}#{% endif %}"
+                                        alt="" class="img-thumbnail img-fluid rounded-circle bg-light"
+                                        style="height: 100%; width: 100%; object-fit: cover;">
+                                    </div>
+                                </div>
+                                <div class="pl-3">
+                                    <h5 class="m-0 font-weight-bold text-dark">{{ comment.author.username }} </h5>
+                                    <p class="font-small text-light-1 ">{{ comment.content }}</p>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-12 col-lg-2 col-xl-2">
+
+            </div>
+        </div>
+
+    </div>
+
+
+    {% endblock content %}
+
+    {% block extra_js %}
+    <script>
+        const VoteApp = {
+            data() {
+                return {
+                    votes: parseInt("{{ article.evaluate_votes }}"),
+                    current_user_vote: 0
+                };
+
+            },
+            methods: {
+                vote_up() {
+                    this.make_vote_api_call(1);
+                },
+                vote_down() {
+                    this.make_vote_api_call(-1);
+                },
+                vote_zero() {
+                    this.make_vote_api_call(0);
+                },
+                make_vote_api_call(vote) {
+                    fetch('{{ article.get_vote_url }}', {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRFToken': '{{ csrf_token }}',
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(vote)
+                    }).then(e => e.json()).then(e => {
+                        this.votes = e.votes;
+                        this.current_user_vote = e.current_user_vote;
+                        alert(e)
+                    })
+                }
+            },
+            delimiters: ['[[', ']]'],
+
+        }
+
+
+        Vue.createApp(VoteApp).mount('#vote-app');
+
+
+
+    </script>
+    {% endblock %}

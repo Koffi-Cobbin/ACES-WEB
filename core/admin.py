@@ -1,5 +1,6 @@
 from django.contrib import admin
-
+from django.db import models
+from martor.widgets import AdminMartorWidget
 # Register your models here.
 from .models import  Article, ArticleCategory, ContactMessage, Event, Executive, ExecutiveRole, Configuration, Image, Course, Book, Project, Scholarship, Slider
 
@@ -23,4 +24,8 @@ admin.site.register(Slider)
 admin.site.register(Project)
 admin.site.register(Scholarship)
 admin.site.register(ArticleCategory)
-admin.site.register(Article)
+@admin.register(Article)
+class ArticleAdmin(admin.ModelAdmin):
+    formfield_overrides = {
+        models.TextField: {'widget': AdminMartorWidget},
+    }

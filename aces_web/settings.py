@@ -66,10 +66,13 @@ INSTALLED_APPS = [
 
     # Third party
     'whitenoise.runserver_nostatic',
+    'allauth',
     'crispy_forms',
     'django_unicorn',
     'unicorn',
     'debug_toolbar',
+    'martor',
+    'ckeditor',
 
 ]
 
@@ -184,7 +187,7 @@ LOGIN_REDIRECT_URL = "accounts:login_success"
 LOGOUT_REDIRECT_URL = "/"
 
 DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
-USE_L10N = False
+
 
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 ACCOUNT_EMAIL_REQUIRED = True
@@ -231,3 +234,9 @@ THUMBNAIL_ALIASES = {
         'cardsmall': {'size': (160, 110), 'crop': "smart"},
     },
 }
+
+if DEBUG:
+    import mimetypes
+    mimetypes.add_type("application/javascript", ".js", True)
+
+CKEDITOR_UPLOAD_PATH = Path(MEDIA_ROOT) / 'ckeditor_uploads/'

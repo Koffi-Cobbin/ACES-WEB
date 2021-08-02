@@ -21,16 +21,16 @@
 {% block content %}
 <div class="bg-light py-5 container-fluid pb-5">
     <div class="container">
-
         <div class="d-flex justify-content-center">
-            <div class="" style="max-width: 650px;">
-                {{ config.about }}
+            <div class="" style="max-width: 800px;">
+                {{ config.about | safe }}
             </div>
         </div>
     </div>
 </div>
+
 <div class="container-fluid  py-3">
-    <div class="container d-flex flex-column align-items-center py-4" style="max-width: 650px;">
+    <div class="container d-flex flex-column align-items-center py-4" style="max-width: 800px;">
         <div class="container py-5 mt-5">
             <div class="row">
                 <div class="col-12">
@@ -40,29 +40,31 @@
                     </div>
                 </div>
             </div>
-        <div>
-            {{ config.history }}
+            <div>
+                {{ config.history | safe }}
+            </div>
         </div>
     </div>
-</div>
 
-<div class="container-fluid py-5">
-    <div class="container d-flex flex-column align-items-center py-4" style="max-width: 650px;">
-        <div class="container py-5 mt-5">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-heading text-center mx-auto wow fadeInUp" data-wow-delay="300ms">
-                        <h3>Gallery</h3>
+    <div class="container-fluid py-5">
+        <div class="container d-flex flex-column align-items-center py-4" style="max-width: 650px;">
+            <div class="container py-5 mt-5">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-heading text-center mx-auto wow fadeInUp" data-wow-delay="300ms">
+                            <h3>Gallery</h3>
+                        </div>
                     </div>
                 </div>
             </div>
-    </div>
-    <div class="row">
-        {% for image in images %}
-        <div class="col-6 col-md-4">
-            <img class="img-primary img-thumbnail" src="{{ image.image.url }}"  height="300px;" alt="">
+            <div class="row">
+                {% for image in images %}
+                <div class="col-6 col-md-4">
+                    <img class="img-primary img-thumbnail" src="{{ image.image.url }}" height="300px;" alt="">
+                </div>
+                {% endfor %}
+            </div>
         </div>
-        {% endfor %}
     </div>
 </div>
 {% endblock content %}

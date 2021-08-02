@@ -1,7 +1,7 @@
 from typing import Any, Mapping, Optional
 from django import forms
 from django.core.files.base import File
-from .models import ContactMessage, Image
+from .models import ArticleComment, ContactMessage, Image
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Fieldset, Layout, Submit, Row, Column
@@ -33,3 +33,9 @@ class ContactForm(forms.ModelForm):
     class Meta:
         model = ContactMessage
         fields = ("name", 'email', "message")
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = ArticleComment
+        fields = ("content",)
