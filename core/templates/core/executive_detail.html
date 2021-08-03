@@ -27,14 +27,14 @@
 </div>
 <div class="container pb-5" style="max-width: 650px;">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 text-center">
             <img src="{{ executive.picture.url }}" alt="" class="img-reponsive img-thumbnail">
         </div>
         <div class="col-md-12 py-5 ">
 
 
             <div class="py-5">
-                {{ executive.about}}
+                {{ executive.about | safe}}
             </div>
         </div>
     </div>
