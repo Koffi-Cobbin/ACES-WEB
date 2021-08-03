@@ -10,6 +10,12 @@
 body {
     font-family: montserrat, sans-serif;
     font-size: 18px;
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+body main {
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 @media only screen and (max-width: 768px){
     body {

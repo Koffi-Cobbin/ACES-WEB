@@ -1,12 +1,12 @@
 <!-- Single Testimonials Area -->
 <div class="col-12 col-sm-6 col-md-4 col-lg-3 py-4">
-    <div data-aos="fade-left" class=" h-100">
+    <div data-aos="fade-up" class=" h-100">
 
         <div class="d-flex flex-column wow fadeInUp" data-wow-delay="400ms">
             <div class="testimonial-thum  p-0">
                 <a href="{{ event.get_absolute_url }}">
 
-                <img style="object-fit:cover; height: 175px; width:100%;" src="{{ event.picture.url }}" alt="">
+                    <img style="object-fit:cover; height: 175px; width:100%;" src="{{ event.picture.url }}" alt="">
                 </a>
             </div>
             <div class="testimonial-content py-3">
@@ -19,7 +19,7 @@
                 </p>
                 <p class="m- text-muted">{{ event.get_description_text|safe | truncatewords:18}}</p>
 
-                <p class="m-0" ><span>{{ event.venue }},</span> {{ event.date }}</p>
+                <p class="m-0"><span>{{ event.venue }},</span> {{ event.date }}</p>
             </div>
         </div>
     </div>
