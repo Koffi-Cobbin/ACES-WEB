@@ -9,14 +9,16 @@
 
     <div class="container text-white bg-dark pt-5 h-100">
         <div class="row h-100">
-            <div class=" col-md-6 h-100 d-flex flex-column justify-content-center">
-                
-                <p class="lead">{{ config.banner_prefix_text }} </p>
-                <h1 class="font-xxlarge font-weight-bold">{{ config.banner_title }}</h1>
-                <p class="lead">{{ config.banner_subtitle }}</div>
+            <div class=" col-md-6">
+                <div class="h-100 d-flex flex-column justify-content-center">
+
+                    <p class="lead">{{ config.banner_prefix_text }} </p>
+                    <h1 class="font-xxlarge font-weight-bold">{{ config.banner_title }}</h1>
+                    <p class="lead">{{ config.banner_subtitle }}
+                </div>
+            </div>
             <div class="col-md-6 h-max-100">
                 <img class="img-secondary" src="{{ config.banner_image.url }}">
-
             </div>
         </div>
     </div>
@@ -63,7 +65,7 @@
             <p class="fancy-underline"></p>
         </div>
     </div>
-    <div class="container py-5" >
+    <div class="container py-5">
 
         <div class="row ">
             {% for executive in executives %}
@@ -81,7 +83,7 @@
             <p class="fancy-underline"></p>
         </div>
     </div>
-    <div class="container py-5" >
+    <div class="container py-5">
 
         <div class="row ">
             {% for event in upcoming_events %}
