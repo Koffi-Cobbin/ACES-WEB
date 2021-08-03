@@ -50,8 +50,7 @@
     </div>
     <div class="d-flex justify-content-center">
         <div data-aos="fade-up" class="" style="max-width: 650px;">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut maiores tempore sed asperiores aperiam sit
-            nemo ea non impedit repellat rem, aliquam error at eaque nam odit sapiente labore accusantium.
+            {{ config.get_mission_text | truncatewords:50}}
         </div>
     </div>
 </div>

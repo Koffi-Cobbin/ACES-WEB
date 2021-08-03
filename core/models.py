@@ -17,8 +17,11 @@ class Configuration(models.Model):
     main_phone_number = models.CharField(max_length=13)
     office_phone_number = models.CharField(max_length=13)
     email_address = models.EmailField()
+    
     about = RichTextField()
+    mission = RichTextField()
     history = RichTextField()
+
     banner_prefix_text = models.CharField(max_length=40)
     banner_title = models.CharField(max_length=40)
     banner_subtitle = models.CharField(max_length=100)
@@ -36,7 +39,10 @@ class Configuration(models.Model):
 
     def get_about_text(self):
         return bs4.BeautifulSoup(self.about, 'html.parser').get_text()
-        
+    
+    def get_mission_text(self):
+        return bs4.BeautifulSoup(self.mission, 'html.parser').get_text()
+
     @classmethod
     def object(cls):
         return cls.objects.first()

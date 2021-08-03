@@ -21,14 +21,14 @@
                             <div class="col-12 col-lg-5">
                                 <div class="contact-information wow fadeInUp" data-wow-delay="400ms">
                                     <div class="section-heading text-left">
-                                        <span>Reach Out.</span>
-                                        <h3>Contact Us</h3>
-                                        <p class="mt-5">{{ config.get_about_text|safe |truncatewords:60 }}</p>
+                                        <span data-aos="fade-left">Reach Out.</span>
+                                        <h3 data-aos="fade-right">Contact Us</h3>
+                                        <p data-aos="fade-up" class="mt-5">{{ config.get_about_text|safe |truncatewords:60 }}</p>
                                         <a href="{% url 'core:about' %}" class="btn btn-primary">Read More</a>
                                     </div>
 
                                     <!-- Contact Social Info -->
-                                    <div class="contact-social-info d-flex mb-30">
+                                    <div data-aos="zoom-in" class="contact-social-info d-flex mb-30">
                                         <a class="p-2" style="font-size: 32px;" href="{{ config.whatsapp_link }}"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
                                         <a class="p-2" style="font-size: 32px;" href="{{ config.facebook_link }}"><i class="fab fa-facebook" aria-hidden="true"></i></a>
                                         <a class="p-2" style="font-size: 32px;" href="{{ config.twitter_link }}"><i class="fab fa-twitter" aria-hidden="true"></i></a>
@@ -63,7 +63,7 @@
                             <!-- Contact Form Area -->
                             <div class="col-12 col-lg-7">
                                 <div class="contact-form-area wow fadeInUp" data-wow-delay="500ms">
-                                    <h3>Leave a message</h3>
+                                    <h3 data-aos="fade-left">Leave a message</h3>
                                     <form action="." method="post">
                                         {% csrf_token %}
                                         {{ contact_form | crispy }}
