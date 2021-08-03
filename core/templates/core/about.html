@@ -1,0 +1,92 @@
+{% extends '_base.html' %}
+
+{% load static %}
+
+
+
+{% block banner %}
+<div class="jumbotron h-100 m-0 py-3 shadow-none" style="background: transparent;">
+
+    <div class="container text-white py-3 py-md-0">
+        <div class="d-flex flex-column align-items-center py-4">
+            <div class="special-title text-white position-relative">
+                <h1 data-aos="fade-right"  class="display-4 text-wrap font-weight-bold m-0">About ACES</h1>
+                <p data-aos="fade-left" class="fancy-underline"></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock banner %}
+
+{% block content %}
+<div class="bg-light py-5 container-fluid pb-5">
+    <div class="container">
+        <div class="d-flex justify-content-center">
+            <div class="" style="max-width: 800px;">
+                {{ config.about | safe }}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container-fluid  py-3">
+    <div class="container d-flex flex-column align-items-center py-4" style="max-width: 800px;">
+        <div class="container py-5 mt-5">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading text-center mx-auto wow fadeInUp" data-wow-delay="300ms">
+                        <span data-aos="fade-left">Our</span>
+                        <h3 data-aos="fade-right">Mission</h3>
+                    </div>
+                </div>
+            </div>
+            <div>
+                {{ config.mission | safe }}
+            </div>
+        </div>
+    </div>
+    </div>
+
+<div class="container-fluid  py-3">
+    <div class="container d-flex flex-column align-items-center py-4" style="max-width: 800px;">
+        <div class="container py-5 mt-5">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading text-center mx-auto wow fadeInUp" data-wow-delay="300ms">
+                        <span data-aos="fade-left">Our</span>
+                        <h3 data-aos="fade-right">History</h3>
+                    </div>
+                </div>
+            </div>
+            <div>
+                {{ config.history | safe }}
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid py-5">
+        <div class="container d-flex flex-column align-items-center py-4" style="max-width: 650px;">
+            <div class="container py-5 mt-5">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-heading text-center mx-auto wow fadeInUp" data-wow-delay="300ms">
+                            <h3 data-aos="fade-up">Gallery</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% for image in images %}
+                <div class="col-6 col-md-4">
+                    <a href="{{ image.image.url }}">
+                        <img data-aos="zoom-in" class="img-primary img-thumbnail" src="{{ image.image.url }}" height="300px;" alt="">
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
