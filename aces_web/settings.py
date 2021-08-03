@@ -38,8 +38,8 @@ except:
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG')
-ALLOWED_HOSTS = env('ALLOWED_HOSTS')
+DEBUG = env('DEBUG') 
+ALLOWED_HOSTS = env("ALLOWED_HOSTS")
 
 INTERNAL_IPS = [
     "127.0.0.1",
@@ -240,3 +240,5 @@ if DEBUG:
     mimetypes.add_type("application/javascript", ".js", True)
 
 CKEDITOR_UPLOAD_PATH = Path(MEDIA_ROOT) / 'ckeditor_uploads/'
+
+SITE_ID = 1

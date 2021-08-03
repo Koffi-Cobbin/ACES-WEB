@@ -19,6 +19,11 @@ class Configuration(models.Model):
     email_address = models.EmailField()
     about = RichTextField()
     history = RichTextField()
+    banner_prefix_text = models.CharField(max_length=40)
+    banner_title = models.CharField(max_length=40)
+    banner_subtitle = models.CharField(max_length=100)
+
+    banner_image = models.ImageField(upload_to="banner_image/")
 
     # social links
     whatsapp_link = models.URLField(blank=True)
@@ -28,8 +33,10 @@ class Configuration(models.Model):
     
     def __str__(self):
         return "Site Configuration"
+
     def get_about_text(self):
-        return bs4.BeautifulSoup(self.about).get_text()
+        return bs4.BeautifulSoup(self.about, 'html.parser').get_text()
+        
     @classmethod
     def object(cls):
         return cls.objects.first()
@@ -101,7 +108,7 @@ class Executive(models.Model):
         return self.name
     
     def get_about_text(self):
-        return bs4.BeautifulSoup(self.about).get_text()
+        return bs4.BeautifulSoup(self.about, 'html.parser').get_text()
 
     def get_absolute_url(self) -> str:
         return reverse('core:executive-detail', kwargs={'pk': self.pk})
@@ -122,9 +129,9 @@ class Event(models.Model):
     
     def __str__(self) -> str:
         return self.name
-        
+
     def get_description_text(self):
-        return bs4.BeautifulSoup(self.description).get_text()
+        return bs4.BeautifulSoup(self.description, 'html.parser').get_text()
 
     def get_absolute_url(self) -> str:
         return reverse("core:event-detail",kwargs={"pk": self.pk} )

@@ -7,16 +7,15 @@
 {% block banner %}
 <div class="jumbotron h-100 m-0 py-7 bg-dark shadow-none" style="background: transparent;">
 
-    <div class="container text-white pt-5 h-100">
+    <div class="container text-white bg-dark pt-5 h-100">
         <div class="row h-100">
             <div class=" col-md-6 h-100 d-flex flex-column justify-content-center">
-                <p class="lead">Welcome to </p>
-                <h1 class="font-xxlarge font-weight-bold">ACES, KNUST</h1>
-                <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, ut
-                    facilis tempora laboriosam fuga a dicta ratione doloribus.</p>
-            </div>
+                
+                <p class="lead">{{ config.banner_prefix_text }} </p>
+                <h1 class="font-xxlarge font-weight-bold">{{ config.banner_title }}</h1>
+                <p class="lead">{{ config.banner_subtitle }}</div>
             <div class="col-md-6 h-max-100">
-                <img class="img-secondary" src="{% static 'img/banner2.png' %}">
+                <img class="img-secondary" src="{{ config.banner_image.url }}">
 
             </div>
         </div>
@@ -27,7 +26,7 @@
 {% block content %}
 <div class="bg-light container-fluid py-5">
     <div class="d-flex flex-column align-items-center mt-4 py-4">
-        <div class="div">
+        <div class="div special-title">
             <h1 class="display-3 font-weight-bold m-0">About ACES</h1>
             <p class="fancy-underline"></p>
         </div>
@@ -42,7 +41,7 @@
 
 <div class="bg-white container-fluid py-5">
     <div class="d-flex flex-column align-items-center py-4">
-        <div class="div">
+        <div class="div special-title">
             <h1 class="display-3 font-weight-bold m-0">Our Mission</h1>
             <p class="fancy-underline"></p>
         </div>
@@ -59,7 +58,7 @@
 
 <div class="container-fluid py-5">
     <div class="d-flex flex-column align-items-center py-4 mt-4">
-        <div class="div">
+        <div class="div special-title">
             <h1 class="display-3 font-weight-bold m-0">Our Executives</h1>
             <p class="fancy-underline"></p>
         </div>
@@ -77,7 +76,7 @@
 {% if upcoming_events %}
 <div class="container-fluid py-5">
     <div class="d-flex flex-column align-items-center py-4 mt-4">
-        <div class="div">
+        <div class="div special-title">
             <h1 class="display-3 font-weight-bold m-0">Upcoming events</h1>
             <p class="fancy-underline"></p>
         </div>

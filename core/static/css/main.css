@@ -107,7 +107,16 @@ nav.navbar {
     position: relative;
     padding: 10px;
 }
+@media only screen and (max-width: 600px){
 
+    .special-title .display-3{
+        font-size: 2.4em;
+}
+.fancy-underline {
+    padding: 5px;
+}
+
+}
 .fancy-underline::before {
     content: '';
     position: absolute;
