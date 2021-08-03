@@ -1,84 +1,88 @@
-appdirs @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/68/c7/33/ef0f6af8d1aa906f1a5641762fe5d6f47d565c5a4b3482f1c6fb0f5f20/appdirs-1.4.4-py2.py3-none-any.whl
-argcomplete @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/81/90/9c/2867e4b73eb359dc3b81f35055a173d3e59cf875e07cf2f91fd638b769/argcomplete-1.12.2-py2.py3-none-any.whl
-asgiref==3.3.4
-atomicwrites @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/ca/84/dd/000dbc2864acca52a74a82da8b597c9e4778eb3fe64687a31a8095ad5f/atomicwrites-1.4.0-py2.py3-none-any.whl
-attrs @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/b7/28/6f/acdd2c0e759f1cda97abf00db7723a0ffb3a151696d8d96398aea16171/attrs-20.3.0-py2.py3-none-any.whl
-beautifulsoup4==4.9.3
-black==21.7b0
-blessings @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/54/a0/24/f348f186211e5cfab3ab0096e664f6c058e12881ed99528a5ffbca82a0/blessings-1.7-py3-none-any.whl
-bpython @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/6e/2c/0c/f715b5e1fa3c521ecf8936d75d3cfe4eb3c256b578984cf61d2c60762f/bpython-0.19-py2.py3-none-any.whl
-cachetools==4.2.1
-certifi==2020.12.5
-cffi==1.14.5
-chardet==4.0.0
-click @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/30/bc/bf/e00ffd8f0edf0294942e70e80e42a839bd2649d2c5b864e6389e526d2a/click-7.1.2-py2.py3-none-any.whl
-colorama @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/b0/f3/a3/cf94f06cbe1d286a25116cfe54d5a75cb1c4b54d15b2b1b4fc03a7f657/colorama-0.4.4-py2.py3-none-any.whl
-colorlog @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/53/ed/56/ccda90b40f9a1bd51524954217a7334cf1fa52bb8d4789448635605840/colorlog-4.7.2-py2.py3-none-any.whl
-cryptography==3.4.5
-curtsies @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/21/24/9a/ae682d8bd1096880ea2c1309c3c56e4167f9d6cb4343624ba825311ad5/curtsies-0.3.5.tar.gz
-cwcwidth @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/75/6e/b8/6fed54a844ccf75af8aaf22365b903395875c5ed0832418e19b812270a/cwcwidth-0.1.4-cp38-cp38-win_amd64.whl
-decorator @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/e8/56/46/038f0f95c2eb2a2792092491cba740226306e663708d5062754d1cb91f/decorator-4.4.2-py2.py3-none-any.whl
-defusedxml==0.6.0
-distlib @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/05/ef/a8/cc6b58b48105b14323bce7de07ff1c0c4add12d6f53f688a46288bd686/distlib-0.3.1-py2.py3-none-any.whl
-Django==3.2
-django-allauth==0.44.0
-django-ckeditor==6.1.0
-django-crispy-forms==1.11.0
-django-debug-toolbar==3.2
-django-environ==0.4.5
-django-js-asset==1.2.2
-django-mock-queries==2.1.6
-django-redis @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/2b/04/22/417884c98ef642ab00d016ee7e3da1562fc62f2d87edbbd2459dadf43d/django_redis-4.12.1-py3-none-any.whl
-django-stubs @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/57/b3/72/355fa43e97fe31510b5cce9d6a6bcaf3afda3ef0fa5bad292c5f3e3de6/django_stubs-1.5.0-py3-none-any.whl
-django-unicorn==0.27.2
-djangorestframework @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/e3/08/1d/2834edd42b18b05e8ca8969c859a4374478872dfff9da3c1c4c2e0aeba/djangorestframework-3.12.2-py3-none-any.whl
-filelock @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/f4/78/c1/69555c3867649a2a5dac43f12a078830700480a49be273fb2de82be2ab/filelock-3.0.12-py3-none-any.whl
-flake8 @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/5c/5b/91/23d9fee55905e042e829a14e2fa56ffd39c81246aba659e2840bab728b/flake8-3.8.4-py2.py3-none-any.whl
-greenlet @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/61/00/be/59097d70ba41bf46b49efff9e6a4254adc211d0898bb38b87d95ca71e1/greenlet-1.0.0-cp38-cp38-win_amd64.whl
-idna==2.10
-iniconfig @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/ac/f9/da/e990ffcd9ec361a68676a5916e391286e1ea5d1b8907ae887e141a71f5/iniconfig-1.1.1-py2.py3-none-any.whl
-isort @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/c7/65/52/89112b51dedef2d5c6ae731072aace88c4bb499093e551cceec24f2b18/isort-5.7.0-py3-none-any.whl
-Markdown==3.3.4
-markdown2==2.4.0
-martor==1.6.2
-mccabe @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/37/6e/69/4a33a4d6c80c775b1ee205face2c6e07b762c8602bb0f0d236ebe790c5/mccabe-0.6.1-py2.py3-none-any.whl
-mock @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/97/e3/46/0a673b6161beb137677c7c220e485b25733d44b9034d7e3a679a1d6451/mock-4.0.3-py3-none-any.whl
-model-bakery @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/7a/15/62/407e211e14d32299cc385695b1f7b6107252afb32b32dc1c2b3c5e8c7f/model_bakery-1.1.1-py2.py3-none-any.whl
-mypy @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/a4/29/80/1c8fdd823850badd194d67a793b6bb2ba5b076439b9776bfd9374298a1/mypy-0.770-cp38-cp38-win_amd64.whl
-mypy-extensions @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/b6/a0/b0/a5dc9acd6fd12aba308634f21bb7cf0571448f20848797d7ecb327aa12/mypy_extensions-0.4.3-py2.py3-none-any.whl
-nox @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/76/c5/0e/97160a127b08e4b572089e34a6ddb16783225056c60ef5df5ede2204ce/nox-2020.12.31-py3-none-any.whl
-oauthlib==3.1.0
-orjson==3.5.2
-packaging @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/69/b5/74/4884010222ec7d09be9bd10d71316b7c49153ef24103605e4a2650af7c/packaging-20.9-py2.py3-none-any.whl
-pathspec @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/5d/98/c8/c7cd4decd7943aa5647824d8553b40e86f4e2ef814ca2a4e73ee708f7f/pathspec-0.8.1-py2.py3-none-any.whl
-Pillow==8.1.0
-pluggy @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/9c/e5/0b/2d64d03361a081edeb5d2ec5f286ccf9719587781fbf6822e1b6384c27/pluggy-0.13.1-py2.py3-none-any.whl
-py @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/6b/b2/2b/e6686e7d0183dbd36bd66921efa3e77ce26260a3671524cd86614290e0/py-1.10.0-py2.py3-none-any.whl
-pycodestyle @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/01/f4/cf/c7e34cb76e03e95d9eff28af16fe09ee8edd01cc985fc2b88453b6d311/pycodestyle-2.6.0-py2.py3-none-any.whl
-pycparser==2.20
-pydantic @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/c4/88/0a/91b0a1fbbb568ff71eaf2d21fde58fd22f59d162ed9c9a3727ae79cc1d/pydantic-1.7.3-cp38-cp38-win_amd64.whl
-pyflakes @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/da/83/11/1e9a80c39638c6967e9b1117b17d8ec5f723ddd0a88251cc08dc0807b0/pyflakes-2.2.0-py2.py3-none-any.whl
-Pygments @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/d8/89/8d/dd9d739214940ed315c7a6aa2fc949a9ed6257976b13c0e7d40e684012/Pygments-2.8.0-py3-none-any.whl
-PyJWT==2.0.1
-pyparsing @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/da/e7/3d/1780282f558e5fd157bf708b28b8ba0d08323ef6bc5b6396139ce38a0b/pyparsing-2.4.7-py2.py3-none-any.whl
-pytest @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/ba/91/14/23adb9b15ce836665a99c972a5135db1ca93b99dfe4946fddf87c531b6/pytest-6.2.2-py3-none-any.whl
-pytest-django @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/59/4c/be/fb03c860c3a42827593d0ff37e0b3840a581060e2c86a0186677e2568b/pytest_django-3.10.0-py2.py3-none-any.whl
-python3-openid==3.2.0
-pytz==2021.1
-pywatchman==1.4.1
-redis @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/7d/10/53/5e7715691ea8dff1b633fa5813e2a864bf74e3659c469d2a23cd6aae35/redis-3.5.3-py2.py3-none-any.whl
-regex @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/6e/95/18/3db0ce3882c0ae273d01c0efa35e8bf56a95390ca600c814ace94cea9a/regex-2020.11.13-cp38-cp38-win_amd64.whl
-requests==2.25.1
-requests-oauthlib==1.3.0
-shortuuid==1.0.1
-six @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/be/98/c7/69fe6fea7a59659af1c6260899226129565330b1e07c9c5b3769be76bf/six-1.15.0-py2.py3-none-any.whl
-soupsieve==2.2
-sqlparse==0.4.1
-toml @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/9f/8c/c3/7b4f6778d60f3c9fa11f8fd0e48243bbad25a04975e0a01006b6350594/toml-0.10.2-py2.py3-none-any.whl
-tomli==1.0.4
-typed-ast @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/ba/68/45/0b3dcb308baa39234616e9e9932f250e042d0a89d24b233ed86bb05e61/typed_ast-1.4.2-cp38-cp38-win_amd64.whl
-typing-extensions @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/ac/8f/3a/97dfae6ca13a6e156f19a5e8aa95fc250129d7e5e6cd0f7c76a1d45b4f/typing_extensions-3.7.4.3-py3-none-any.whl
-urllib3==1.26.3
-virtualenv @ file:///C:/Users/user/AppData/Local/pypoetry/Cache/artifacts/8b/f9/31/49f4fd6a51243e9d8f6f7656b18ead6c1fb90bf5afb2e33080542c8e32/virtualenv-20.4.2-py2.py3-none-any.whl
-whitenoise==5.2.0
-wrapt==1.12.1
+Package              Version
+-------------------- ----------
+appdirs              1.4.4
+argcomplete          1.12.2
+asgiref              3.3.4
+atomicwrites         1.4.0
+attrs                20.3.0
+beautifulsoup4       4.9.3
+black                21.7b0
+blessings            1.7
+bpython              0.19
+cachetools           4.2.1
+certifi              2020.12.5
+cffi                 1.14.5
+chardet              4.0.0
+click                7.1.2
+colorama             0.4.4
+colorlog             4.7.2
+cryptography         3.4.5
+curtsies             0.3.5
+cwcwidth             0.1.4
+decorator            4.4.2
+defusedxml           0.6.0
+distlib              0.3.1
+Django               3.2
+django-allauth       0.44.0
+django-ckeditor      6.1.0
+django-crispy-forms  1.11.0
+django-debug-toolbar 3.2
+django-environ       0.4.5
+django-js-asset      1.2.2
+django-mock-queries  2.1.6
+django-redis         4.12.1
+django-stubs         1.5.0
+django-unicorn       0.27.2
+djangorestframework  3.12.2
+filelock             3.0.12
+flake8               3.8.4
+greenlet             1.0.0
+idna                 2.10
+iniconfig            1.1.1
+isort                5.7.0
+Markdown             3.3.4
+markdown2            2.4.0
+martor               1.6.2
+mccabe               0.6.1
+mock                 4.0.3
+model-bakery         1.1.1
+mypy                 0.770
+mypy-extensions      0.4.3
+nox                  2020.12.31
+oauthlib             3.1.0
+orjson               3.5.2
+packaging            20.9
+pathspec             0.8.1
+Pillow               8.1.0
+pip                  20.2.1
+pluggy               0.13.1
+py                   1.10.0
+pycodestyle          2.6.0
+pycparser            2.20
+pydantic             1.7.3
+pyflakes             2.2.0
+Pygments             2.8.0
+PyJWT                2.0.1
+pyparsing            2.4.7
+pytest               6.2.2
+pytest-django        3.10.0
+python3-openid       3.2.0
+pytz                 2021.1
+pywatchman           1.4.1
+redis                3.5.3
+regex                2020.11.13
+requests             2.25.1
+requests-oauthlib    1.3.0
+setuptools           49.2.1
+shortuuid            1.0.1
+six                  1.15.0
+soupsieve            2.2
+sqlparse             0.4.1
+toml                 0.10.2
+tomli                1.0.4
+typed-ast            1.4.2
+typing-extensions    3.7.4.3
+urllib3              1.26.3
+virtualenv           20.4.2
+whitenoise           5.2.0
+wrapt                1.12.1
