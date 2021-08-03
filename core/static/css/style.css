@@ -9,14 +9,4 @@ img {
 .page-link {
     padding: 10px 20px;
 }
-.h-100 {
-    height: 100%;
-}
 
-@media only screen and (max-width: 600px){
-
-    .special-title .display-3{
-        font-size: 1.4em;
-}
-
-}

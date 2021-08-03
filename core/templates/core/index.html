@@ -12,13 +12,13 @@
             <div class=" col-md-6">
                 <div class="h-100 d-flex flex-column justify-content-center">
 
-                    <p class="lead">{{ config.banner_prefix_text }} </p>
-                    <h1 class="font-xxlarge font-weight-bold">{{ config.banner_title }}</h1>
-                    <p class="lead">{{ config.banner_subtitle }}
+                    <p data-aos="fade-right" class="lead">{{ config.banner_prefix_text }} </p>
+                    <h1 data-aos="fade-right" class="font-xxlarge font-weight-bold">{{ config.banner_title }}</h1>
+                    <p data-aos="fade-right" class="lead">{{ config.banner_subtitle }}
                 </div>
             </div>
             <div class="col-md-6 h-max-100">
-                <img class="img-secondary" src="{{ config.banner_image.url }}">
+                <img data-aos="fade-left" class="img-secondary" src="{{ config.banner_image.url }}">
             </div>
         </div>
     </div>
@@ -28,13 +28,13 @@
 {% block content %}
 <div class="bg-light container-fluid py-5">
     <div class="d-flex flex-column align-items-center mt-4 py-4">
-        <div class="div special-title">
-            <h1 class="display-3 font-weight-bold m-0">About ACES</h1>
-            <p class="fancy-underline"></p>
+        <div  class="div special-title">
+            <h1 data-aos="fade-right"  class="display-3 font-weight-bold m-0">About ACES</h1>
+            <p data-aos="fade-left" class="fancy-underline"></p>
         </div>
     </div>
     <div class="d-flex justify-content-center mb-4 ">
-        <div class="" style="max-width: 650px;">
+        <div data-aos="fade-up" class="" style="max-width: 650px;">
             {{ config.get_about_text | truncatewords:50 }}
         </div>
     </div>
@@ -44,15 +44,15 @@
 <div class="bg-white container-fluid py-5">
     <div class="d-flex flex-column align-items-center py-4">
         <div class="div special-title">
-            <h1 class="display-3 font-weight-bold m-0">Our Mission</h1>
-            <p class="fancy-underline"></p>
+            <h1 data-aos="fade-right" class="display-3 font-weight-bold m-0">Our Mission</h1>
+            <p data-aos="fade-left" class="fancy-underline"></p>
         </div>
     </div>
     <div class="d-flex justify-content-center">
-        <p class="" style="max-width: 650px;">
+        <div data-aos="fade-up" class="" style="max-width: 650px;">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut maiores tempore sed asperiores aperiam sit
             nemo ea non impedit repellat rem, aliquam error at eaque nam odit sapiente labore accusantium.
-        </p>
+        </div>
     </div>
 </div>
 
@@ -61,8 +61,8 @@
 <div class="container-fluid py-5">
     <div class="d-flex flex-column align-items-center py-4 mt-4">
         <div class="div special-title">
-            <h1 class="display-3 font-weight-bold m-0">Our Executives</h1>
-            <p class="fancy-underline"></p>
+            <h1 data-aos="fade-right" class="display-3 font-weight-bold m-0">Our Executives</h1>
+            <p data-aos="fade-left" class="fancy-underline"></p>
         </div>
     </div>
     <div class="container py-5">
@@ -79,8 +79,8 @@
 <div class="container-fluid py-5">
     <div class="d-flex flex-column align-items-center py-4 mt-4">
         <div class="div special-title">
-            <h1 class="display-3 font-weight-bold m-0">Upcoming events</h1>
-            <p class="fancy-underline"></p>
+            <h1 data-aos="fade-right" class="display-3 font-weight-bold m-0">Upcoming events</h1>
+            <p data-aos="fade-left" class="fancy-underline"></p>
         </div>
     </div>
     <div class="container py-5">
