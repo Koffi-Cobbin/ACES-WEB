@@ -17,8 +17,6 @@
                     {% if event.completed %}<span class="badge badge-warning">Completed</span>{% else %}<span
                         class="badge badge-success">Upcoming</span>{% endif %}
                 </p>
-                <p class="m- text-muted">{{ event.get_description_text|safe | truncatewords:18}}</p>
-
                 <p class="m-0"><span>{{ event.venue }},</span> {{ event.date }}</p>
             </div>
         </div>
