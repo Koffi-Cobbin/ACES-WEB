@@ -25,7 +25,8 @@ env = environ.Env(
     DB_HOST= (str, 'localhost'),
     EMAIL_PORT = (int, 587),
     EMAIL_USE_TLS = (bool, True),
-    MEDIA_ROOT = (str, BASE_DIR / "media")
+    MEDIA_ROOT = (str, BASE_DIR / "media"),
+    STATIC_ROOT = (str, BASE_DIR / "static"),
 )
 try:
     environ.Env.read_env(open(BASE_DIR/'.env'))
@@ -175,7 +176,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = BASE_DIR / "static"
+STATIC_ROOT = env('STATIC_ROOT')
 MEDIA_URL = "/media/"
 MEDIA_ROOT = env('MEDIA_ROOT')
 CRISPY_TEMPLATE_PACK = "bootstrap4"
