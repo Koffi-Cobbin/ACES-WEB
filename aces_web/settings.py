@@ -67,6 +67,7 @@ INSTALLED_APPS = [
     # Third party
     'whitenoise.runserver_nostatic',
     'allauth',
+    'allauth.account',
     'crispy_forms',
     'django_unicorn',
     'unicorn',
@@ -184,7 +185,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 
 # login logout redirects
-LOGIN_REDIRECT_URL = "accounts:login_success"
+LOGIN_REDIRECT_URL = "core:index"
 LOGOUT_REDIRECT_URL = "/"
 
 DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
