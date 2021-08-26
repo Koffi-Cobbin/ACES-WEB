@@ -1,3 +1,5 @@
+Package              Version
+-------------------- ----------
 appdirs              1.4.4
 argcomplete          1.12.2
 asgiref              3.3.4

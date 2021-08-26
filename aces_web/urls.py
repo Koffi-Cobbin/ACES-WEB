@@ -39,7 +39,6 @@ urlpatterns = [
         name="django.contrib.sitemaps.views.sitemap",
     ),
     path('django-unicorn-routes/', include('django_unicorn.urls', namespace="django_unicorn")),
-    path('martor/', include('martor.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('', include('core.urls', namespace='core')),
 ]

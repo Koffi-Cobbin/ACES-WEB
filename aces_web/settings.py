@@ -72,7 +72,6 @@ INSTALLED_APPS = [
     'django_unicorn',
     'unicorn',
     'debug_toolbar',
-    'martor',
     'ckeditor',
 
 ]
