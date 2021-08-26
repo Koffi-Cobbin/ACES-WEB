@@ -14,12 +14,6 @@
       <div class="col-11 col-md-8 col-lg-6 offset-1 offset-md-0 bg-gray px-4 py-4 p-md-5 content my-form">
         <h1>{% trans "Sign In" %}</h1>
 
-
-
-
-        <p>If you have not created an account yet, then please
-
-
         <form class="login" method="POST" action="{% url 'account_login' %}">
           {% csrf_token %}
           {{ form | crispy }}
@@ -28,6 +22,8 @@
           {% endif %}
           <button class="btn btn-primary" type="submit">{% trans "Sign In" %}</button>
           <a class="btn btn-default" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+          <p class="pt-3">Not Registered? <a class="bt btn-link" href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a>
+
         </form>
       </div>
     </div>
