@@ -227,13 +227,14 @@ class ArticleDetailView(DetailView):
 def article_vote(request: HttpRequest, pk) -> HttpResponse:
     if request.method == "POST":
         article = get_object_or_404(models.Article, pk=pk)
-        articlevote = models.ArticleVote.objects.get_or_create(article=article, author = request.user)[0]
-        print(articlevote)
+
         vote = json.loads(request.body)
+
         if vote < -1 or vote > 1:
             raise Http404("Vote must be between 0 and 1")
-        articlevote.vote = int(vote)
-        articlevote.save()
+
+        articlevote = models.ArticleVote.objects.get_or_create(article=article, author = request.user, vote=int(vote))
+
     return JsonResponse({
         'votes': article.evaluate_votes(),
         'current_user_vote':vote,
